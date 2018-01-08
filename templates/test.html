@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style type="text/css">
+        .navbar {
+            background: #3d98e2;
+            height: 50px;
+            overflow: hidden;
+            position: fixed; /* Set the navbar to fixed position */
+            top: 0; /* Position the navbar at the top of the page */
+            width: 100%; /* Full width */
+        }
+
+        input[type="text"]:disabled {
+            background: #fff;
+        }
+        .navleft {
+            width: 70px;
+            /*border: 1px yellow solid;*/
+            padding-left: 1%;
+            float: left;
+        }
+        .navleft img{
+            width: 50px;
+            margin: 1%;
+            padding: 1%;
+        }
+        .navright {
+            /*border: 1px red solid;*/
+            width: 75%;
+            font-size: 45px;
+            color: #fff;
+            line-height: 45px;
+            float: left;
+        }
+
+        .profile {
+            float: right;
+            padding-top: 0.25%;
+            /*border:1px solid #fff;*/
+            width: 20%;
+        }
+        .profile .img-pro {
+            width: 50px;
+            height: 50px;
+            float: left;
+            padding-right: 1%;
+        }
+        .profile .img-pro img {
+            width: 100%;
+            border-radius:50%;
+            padding: 2%;
+        }
+        .profile .detail-pro {
+            width: 70%;
+            color: #fff;
+            float: left;
+            padding-left: 3%;
+            /*border:1px yellow solid;*/
+            height: 100%;
+        }
+
+        .Cont {
+            /*background: yellow;*/
+            margin-top: 55px;
+            padding: 0.5%;
+            position: static;
+            overflow: auto;
+        }
+
+        .T-r {
+            /*border: 1px solid red;*/
+            height: 130px;
+            width: 50%;
+            float: right;
+        }
+
+        .Tr-l {
+            /*border: 1px solid blue;*/
+            height: 60%;
+            width: 35%;
+            float: left;
+            padding: 1%;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            word-wrap: break-word;
+            color: #dedfe0;
+        }
+        .Tr-l i{
+            font-size: 40px;
+            margin-top: 2%;
+            line-height: 50px;
+        }
+
+        .Tr-r {
+            border-left: 2px solid #dedfe0;
+            height: 60%;
+            width: 65%;
+            float: left;
+            padding: 2%;
+            padding-left: 0;
+            text-align: right;
+            word-wrap: break-word;
+            font-size: 60px;
+            line-height: 40px;
+        }
+
+        .status {
+            clear: both;
+            width: 100%;
+            height: 40%;
+            text-align: left;
+            font-size: 30px;
+            line-height: 40px;
+            font-weight: bold;
+            padding-top: 2%;
+            padding-left: 5%;
+            margin-bottom: 5%;
+        }
+
+        .T-l {
+            width: 25%;
+            height: 130px;
+            /*border: 1px solid blue;*/
+            float: left;
+            padding: 0.5%;
+            margin-bottom: 0.5%;
+        }
+        .lb-l {
+            width: 40%;
+            border: 1px solid #cecece;
+            border-right: 0;
+            height: 40px;
+            float: left;
+            clear: both;
+            padding: 3% 5%;
+            text-align: right;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .lb-r {
+            width: 60%;
+            border: 1px solid #cecece;
+            border-left: 0;
+            height: 40px;
+            float: left;
+        }
+        .lb-r .input {
+            border: 0;
+            height: 90%;
+            position: static;
+        }
+
+        .lb-r select {
+            width: 98%;
+            height: 90%;
+            margin:1% 1%;
+            background: #fff;
+            border: 0;
+            cursor: pointer;
+            text-align: right;
+        }
+
+        .lb-r option {
+            text-align: right;
+        }
+
+        .lb-r i{
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 2%;
+            margin: 2% 1%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .lb-r i:active {
+            background: #cecece;
+        }
+
+        .lb-r .date {
+            height: 35px;
+            margin-top: 0.6%;
+            width: 70%;
+            text-align: right;
+            padding-right: 10%;
+            cursor: pointer;
+            position: static;
+        }
+
+        .QT-body {
+            width: 100%;
+            height: 200px;
+            border: 1px solid gray;
+            clear: both;
+        }
+
+        .btt {
+            width: 100%;
+            height: 230px;
+            clear: both;
+        }
+
+        .btt-block {
+            width: 25%;
+            height: 100%;
+            border-right: 1px solid gray;
+            float: left;
+        }
+
+        .btt-block .lb-l,.btt-block .lb-r {
+            border: 0;
+            font-size: 12px;
+            text-align: left;
+            margin: 0.5% 0;
+        }
+
+        .btt-block .lb-r input {
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .tarea {
+            clear: both;
+            font-weight: bold;
+            font-size: 12px;
+            width: 100%;
+            padding-left: 5%;
+        }
+        .btt-block textarea {
+            font-size: 12px;
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+            padding: 1%;
+        }
+
+        .Dstock {
+            width: 100%;
+            height: 30px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .Dstock .stItem, .Dstock .weightItem {
+            width: 50%;
+            height: 100%;
+            padding: 0.5% 2%;
+            float: left;
+        }
+
+        .Hsearch {
+            height: 60px;
+            width: 100%;
+            position: static;
+        }
+
+        .H-list {
+            width: 95%;
+            border: 1px solid #ced9dd;
+            height: 100px;
+            clear: both;
+            position: static;
+            margin: 0 2.5%;
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            user-drag: none;
+        }
+        .H-list * {
+            position: static;
+        }
+
+        .H-list:active {
+            background: #ced9dd;
+        }
+
+        .H-list-img {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            padding: 1%;
+            float: left;
+        }
+        .H-list-img img {
+            width: 100%;
+        }
+
+        .H-list-detail {
+            padding: 0.5%;
+            float: left;
+            font-size: 12px;
+            word-wrap: break-word;
+            color: gray;
+            width: 70%;
+        }
+
+        .H-list-dtitle {
+            font-weight: bold;
+            color: #000;
+            font-size: 14px;
+        }
+
+        .H-list .appp {
+            width: 5%;
+            height: 100%;
+            background: #31aa01;
+            float: right;
+            text-align: center;
+            color: #fff;
+        }
+        .H-list .del {
+            width: 5%;
+            height: 100%;
+            background: red;
+            float: right;
+            color: #fff;
+            text-align: center;
+        }
+        .H-list .del i, .H-list .appp i{
+            font-size: 40px;
+            margin-top: 40%;
+        }
+
+        .H-list .del:active {
+            background: #d62000;
+        }
+
+        .H-list .appp:active {
+            background: #269604;
+        }
+
+        .Hsearch .HS-l {
+            width: 15%;
+            text-align: right;
+            padding-right: 3%;
+            float: left;
+            /*border: 1px solid black;*/
+            font-size: 20px;
+            padding: 1%;
+            position: static;
+        }
+
+        .Hsearch .HS-c {
+            width: 40%;
+            text-align: left;
+            padding-left: 3%;
+            float: left;
+            /*border: 1px solid black;*/
+            padding: 0.2% 0;
+            position: static;
+        }
+        .Hsearch .HS-c .input { position: static; }
+
+        .Hsearch .HS-r {
+            width: 10%;
+            text-align: left;
+            float: left;
+            /*border: 1px solid black;*/
+            padding: 0.2% 0;
+            margin-bottom: 0.5%;
+            position: static;
+        }
+        .Hsearch .HS-r .button {
+            width: 100%;
+            margin: 0 5%;
+            position: static;
+        }
+        .Hsearch .HS-select {
+            width: 30%;
+            text-align:right;
+            float: left;
+            /*border: 1px solid red;
+            height: 100%;*/
+        }
+
+        .Hsearch .HS-select select {
+            width:95%;
+            height:35px;
+            margin-top:0.5%;
+            background:#fff;
+            cursor:pointer;
+        }
+
+        .Hsearch .HS-select .HS-select-l {
+            width:40%;
+            float:left;
+            font-size: 18px;
+            padding-top: 2.5%;
+        }
+
+        .Hsearch .HS-select .HS-select-r {
+            width:60%;
+            float:left;
+            text-align:right;
+        }
+
+        nav.pagination {
+            width: 100%;
+            padding-left: 40%;
+        }
+
+        .L-logo {
+            width: 350px;
+            height: 350px;
+            margin: auto;
+        }
+        .L-logo img {
+            padding: 1%;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .L-form {
+            width: 80%;
+            margin: auto;
+        }
+
+        .cancel_doc {
+            color: red
+        }
+
+        #dataList {
+            width:100%;
+            max-height: 510px;
+            overflow:auto;
+            /*border: 1px solid red;*/
+        }
+
+        /* modal */
+
+        .modal .modal-content {
+            width: 80%;
+            height: 100%;
+            background: #fff;
+            border-radius: 9px;
+        }
+
+        .modal .modal-card-head {
+            background: #1a8aba;
+        }
+        .modal .modal-card-head .modal-card-title {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .modal .S-l {
+            width: 15%;
+            text-align: right;
+            padding-right: 3%;
+            float: left;
+            /*border: 1px solid black;*/
+            font-size: 20px;
+            padding: 1%;
+        }
+
+        .modal .S-c {
+            width: 55%;
+            text-align: left;
+            padding-left: 3%;
+            float: left;
+            /*border: 1px solid black;*/
+            padding: 0.2% 0;
+        }
+
+        .modal .S-r {
+            width: 30%;
+            text-align: left;
+            float: left;
+            /*border: 1px solid black;*/
+            padding: 0.2% 0;
+            margin-bottom: 0.5%;
+        }
+
+        .modal .S-r .button {
+            width: 70%;
+            margin: 0 5%;
+        }
+
+        .mo-list {
+            width: 100%;
+            border: 1px solid #ced9dd;
+            height: 150px;
+            clear: both;
+            cursor: pointer;
+        }
+
+        .mo-list-img {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            padding: 1%;
+            float: left;
+        }
+        .mo-list-img img {
+            width: 100%;
+        }
+
+        .mo-list-detail {
+            padding: 2%;
+            float: left;
+            font-size: 14px;
+            word-wrap: break-word;
+            color: gray;
+        }
+
+        .mo-list-title {
+            font-weight: bold;
+            color: #000;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="Tr-l">
+    ราคารวมทั้งหมด <br>
+    <i class="fa fa-money" aria-hidden="true"></i>
+</div>
+<div class="Tr-r">
+{{ .ArName }} ฿
+</div>
+<div class="status">
+    Status :
+    <span style="color: green; font-size: 20px; line-height:40px;" v-show="is_confirm==1">อนุมัติแล้ว</span>
+    <span style="color: red; font-size: 20px; line-height:40px;" v-show="is_cancel == 1">ยกเลิกแล้ว</span>
+    <span style="color: #000; font-size: 20px; line-height:40px;" v-show="is_confirm==0&&is_cancel==0"> ** เปลี่ยนแปลงข้อมูลบางส่วนได้</span>
+</div>
+</div>
+<div class="T-l">
+    <div class="lb-l">
+        เลขที่เอกสาร
+    </div>
+    <div class="lb-r">
+        <input type="text" class="input" placeholder="เลขที่เอกสาร ..." :value="DocNo" readonly>
+    </div>
+    <div class="lb-l">
+        ประเภทภาษี
+    </div>
+    <div class="lb-r">
+        <select v-model="vatType" @change="calVatnetAmount()" :disabled="detail_itemlists.length!=0">
+            <option value="1">แยกนอก</option>
+            <option value="2">รวมใน</option>
+            <option value="3">อัตราศูนย์</option>
+        </select>
+    </div>
+    <div class="lb-l">
+        ประเภทราคา
+    </div>
+    <div class="lb-r">
+        <select v-model="billType" @change="GenDocNo('QT', billType-1)" :disabled="detail_itemlists.length!=0">
+            <option value="1">ขายสด</option>
+            <option value="2">ขายเชื่อ</option>
+        </select>
+    </div>
+</div>
+</body>
+</html>

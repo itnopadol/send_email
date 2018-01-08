@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+.bot{	
+	margin:5px;
+}
+#Textbody{
+	font-size:16.5px;
+	font-family:"TH Sarabun New", "Tw Cen MT";	
+}
+table {
+    border-collapse: collapse;
+	border: 1px solid black;
+}
+#tablecolor{
+	border-color:#FFF;
+}
+#taleft{
+	text-align:left;
+}
+#padtatwo{
+		padding:5px;
+}
+.tacenter{
+	text-align:center;
+}
