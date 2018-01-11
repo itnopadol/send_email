@@ -521,47 +521,199 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<div class="Tr-l">
-    ราคารวมทั้งหมด <br>
-    <i class="fa fa-money" aria-hidden="true"></i>
+<!---ใช้ Div ในการแบ่งส่วน---->
+<!--<div class="text-center">
+<span class="pull-left">Left Text</span>
+<span>Center Text</span>
+<span class="pull-right">Right text</span>
+</div>-->
+<body id="Textbody" class="">
+<!----Div หัวส่วนที่0---->
+<div class="text-center">
+    	<span class="pull-left"><table style="width:320px;">
+        <tr>
+        	<th align="left">บริษัท นพดลพานิชจำกัด<br>
+			สำนักงานใหญ่: 392 ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง
+      		<br>ต.ฟ้าฮ่าม อ.เมือง จ.เชียงใหม่ 50000
+      		<br>สาขา 1:183 หมู่ที่ 2 ต.ตันเปา อ.สันกำแพง จ.เชียงใหม่ 50130
+        	</th>
+        </tr>
+      	</table></span>
+    <span>&nbsp;</span>
+    <span class="pull-right">&nbsp;</span>
 </div>
-<div class="Tr-r">
-{{ .ArName }} ฿
+<!----ปิด Div หัวส่วนที่0---->
+<!----Div---->
+<div class="text-center">
+    <span class="pull-left">&nbsp;</span>
+    <span>&nbsp;</span>
+    <span class="pull-right">&nbsp;</span>
 </div>
-<div class="status">
-    Status :
-    <span style="color: green; font-size: 20px; line-height:40px;" v-show="is_confirm==1">อนุมัติแล้ว</span>
-    <span style="color: red; font-size: 20px; line-height:40px;" v-show="is_cancel == 1">ยกเลิกแล้ว</span>
-    <span style="color: #000; font-size: 20px; line-height:40px;" v-show="is_confirm==0&&is_cancel==0"> ** เปลี่ยนแปลงข้อมูลบางส่วนได้</span>
+<!----ปิด Div---->
+<!----Div หัวส่วนที่1---->
+<div class="text-center">
+    <span class="pull-left">&nbsp;</span>
+    <span>&nbsp;</span>
+    <span class="pull-right">ใบแจ้งหนี้/Credit Statement</span>
 </div>
+<!----ปิด Div หัวส่วนที่1---->
+<!---- Div หัวส่วนที่2---->
+<div class="text-center">
+    <span class="pull-left">&nbsp;</span>
+    <span>&nbsp;</span>
+    <span class="pull-right">เลขที่ใบแจ้งหนี้ <strong id="inv2"></strong></span>
 </div>
-<div class="T-l">
-    <div class="lb-l">
-        เลขที่เอกสาร
-    </div>
-    <div class="lb-r">
-        <input type="text" class="input" placeholder="เลขที่เอกสาร ..." :value="DocNo" readonly>
-    </div>
-    <div class="lb-l">
-        ประเภทภาษี
-    </div>
-    <div class="lb-r">
-        <select v-model="vatType" @change="calVatnetAmount()" :disabled="detail_itemlists.length!=0">
-            <option value="1">แยกนอก</option>
-            <option value="2">รวมใน</option>
-            <option value="3">อัตราศูนย์</option>
-        </select>
-    </div>
-    <div class="lb-l">
-        ประเภทราคา
-    </div>
-    <div class="lb-r">
-        <select v-model="billType" @change="GenDocNo('QT', billType-1)" :disabled="detail_itemlists.length!=0">
-            <option value="1">ขายสด</option>
-            <option value="2">ขายเชื่อ</option>
-        </select>
-    </div>
+<!----ปิด Div หัวส่วนที่2---->
+<!---- Div หัวส่วนที่3---->
+<div class="text-center">
+    <span class="pull-left">&nbsp;</span>
+    <span>&nbsp;</span>
+    <span class="pull-right">เลขประจำตัวผู้เสียภาษี <strong id="tax2"></strong></span>
 </div>
+<!----ปิด Div หัวส่วนที่3---->
+
+<!---- Div หัวส่วนที่4---->
+<div class="text-center" >
+        <span class="pull-right">
+                <tr>
+                    <th align="left">วันที่ครบกำหนด : <strong id="dat1"> </strong></th>
+                </tr>
+            </span>
+    <span class="pull-right">
+                <tr>
+                    <th align="left">วันที่สรุป : <strong id="dat2"> </strong>&nbsp;&nbsp;</th>
+                </tr>
+        </span>
+</div>
+<!----ปิด Div หัวส่วนที่4---->
+
+<div>
+    <table style="size:500px;">
+        <tr>
+            <th align="left" id="padtatwo">เรื่อง  แจ้งยอดบัญชีถึงกำหนดชำระ<br>
+                เรียน ผู้จัดการ/คุณ <strong id="deb"></strong><br>
+                ที่อยู่ <strong id="add"></strong>  <br>
+                เบอร์โทรลูกค้า <strong id="phone"></strong><br>
+                </th>
+        </tr>
+    </table>
+</div>
+&nbsp;
+<div><span>
+    <table width="70%" cellspacing="1" bgcolor="#CCCCCC" align="center" border="1" >
+    	<caption>ทางบริษัทฯใคร่ขอความกรุณาท่านโปรดชำระเงินค่าสินค้าและบริการ ตามรายการใบกำกับข้างล่างนี้</caption>
+	<thead>
+  		<tr>
+            <th width="5%" bgcolor="#FFFFFF">No</th>
+            <th width="16%" bgcolor="#FFFFFF">ใบกำกับสินค้า</th>
+            <th width="10%" bgcolor="#FFFFFF">วันที่</th>
+            <th width="10%" bgcolor="#FFFFFF">วันครบกำหนด</th>
+            <th width="10%" bgcolor="#FFFFFF">จำนวนเงิน </th>
+            <th width="10%" bgcolor="#FFFFFF">ชำระแล้ว</th>
+            <th width="10%" bgcolor="#FFFFFF">ยอดคงค้าง</th>
+            <th width="40%" bgcolor="#FFFFFF">รายการสินค้า</th>
+		</tr>
+
+        <tr bgcolor="#FFFFFF">
+        <td align='center'>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr bgcolor="#FFFFFF">
+        <td align='center'>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr bgcolor="#FFFFFF">
+        <td align='center'>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr bgcolor="#FFFFFF">
+        <td align='center'>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr bgcolor="#FFFFFF">
+        <td colspan="2" align='center'>รวมเป็นเงิน</td><td colspan="4" align='center'></td><td></td><td></td></tr>
+        </thead>
+		</table>
+        </span></div>
+<div align="left">
+    <ul>
+        <P>หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯจะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว กรณีชำระล่าช้าบริษัทฯ ขอคิดดอกเบี้ยในอัตรา 1.25% ต่อเดือนและค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระโดยการโอนเข้าบัญชี บริษัทนพดลพานิชจำกัด ดังนี้</P>
+    </ul>
+</div>
+<div align="center">
+    <!---รูป--->
+    <img src="bank.PNG" width="200" height="150" >
+</div>
+<div align="center">
+    <ul>
+			<span>เมื่อมีการโอนเงินให้กับบริษัทฯ ขอความกรุณาแจ้ง/ส่งรายละเอียดการชำระให้ทาง E-mail: cd@nopadol.com ,Line: 081-8837619 ,Fax: 053-244111
+            </span><br>
+    </ul>
+    <strong>หมายเหตุ</strong> <span>ท่านยังคงมีบัญชีเก่าที่ได้แจ้งหนี้ไปแล้ว และยังไม่ได้ชำระหนี้</span>
+</div>
+<div>
+    <table width="70%" cellspacing="1" bgcolor="#CCCCCC" align="center" border="1" >
+        <thead>
+        <tr>
+            <th width="5%" bgcolor="#FFFFFF">ลำดับ</th>
+            <th width="30%" bgcolor="#FFFFFF" align="left">เดือน/ปี</th>
+            <th width="10%" bgcolor="#FFFFFF">ยอดค้างชำระ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr bgcolor="#FFFFFF">
+            <td align='center'>1</td> <td></td><td></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+            <td align='center'>2</td><td></td> <td></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+            <td align='center'>3</td><td></td> <td></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+            <th colspan="2" align='right'>ผลรวมยอดค้างชำระ </th><td></td>
+        </tr>
+    </table>
+</div>
+<div align="center">
+    <span>บริษัทฯ ต้องขออภัยมา ณ ที่นี้ด้วย หากท่านชำระยอดคงค้างเรียบร้อยแล้ว</span>
+    <table align="center" id="tablecolor" class="tacenter">
+        <th>ติดต่อแผนกสินเชื่อ</th>
+        <th align="left">โทร(053)2403777 ต่อ 500,511,512,โทรสาร (053)244111</th>
+        <tr>
+            <td></td>
+            <td>โทร081-8837619 คุณธนยศ,คุณเบญจวรรณ โทร.081-6710875 คุณณัฏฐ์ชยาภรณ์ โทร.081-6815780 คุณวิไลวรรณ</td>
+        </tr>
+    </table>
+</div>
+<input type="submit" name="Submit" value=" PRINT " onClick="javascript:this.style.display='none';window.print()">
+<script>
+
+    var invoice , x; //เลขใบแจ้งหนี้
+    var Taxpayer, T; //เลขประจำตัวผู้เสียภาษี
+    var Datesum ,DT; //วันที่สรุป
+    var Dateset ,DS; //วันที่ครบกำหนด
+    var Debtor , N; //ชื่อลูกหนี้
+    var address , AD; //ที่อยู่ของลูกหนี้
+    var phone , TEL; //เบอร์ติดต่อ
+
+    invoice = {"name" : "เลขใบแจ้งหนี้มานีมานะ"};
+    Taxpayer = {"name" : "115011121314"};
+    Datesum = {"name" : "00:00:0000"};
+    Dateset = {"name" : "00:00:0000"};
+    Debtor  = {"name" : "ลูกค้า"};
+    address = {"name" : "อยู่ที่ไหน"};
+    phone = {"name" : "0800000000"};
+    x = invoice.name;
+    T = Taxpayer.name;
+    DT = Datesum.name;
+    DS = Dateset.name;
+    N = Debtor.name;
+    AD = address.name;
+    TEL = phone.name;
+    document.getElementById("inv2").innerHTML = x;
+    document.getElementById("tax2").innerHTML = T;
+    document.getElementById("dat1").innerHTML = DT;
+    document.getElementById("dat2").innerHTML = DS;
+    document.getElementById("deb").innerHTML = N;
+    document.getElementById("add").innerHTML = AD;
+    document.getElementById("phone").innerHTML = TEL;
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or   include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

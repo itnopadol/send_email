@@ -34,7 +34,8 @@
             height: 70px;
             text-align: center;
         }
-        .button{
+        #ds{
+            background-color: red;
             text-align: center;
             font-size: 18px;
             font-family: sans-serif;
@@ -63,6 +64,22 @@
     </style>
 </head>
 <body bgcolor="#009587">
+
+
+
+{{range .}}
+<p>{{.ArName}}  {{.ArCode }}</p>
+{{end}}
+
+{{range .}}
+    {{.ArCode}}
+    {{.ArName}}
+    {{range .BillSubs}}
+        {{.DocNo}}
+        {{.DocDate}}
+    {{end}}
+{{end}}
+
 <div class="text-center">
     	<span class="pull-left"><table style="width:320px;">
         <tr>
@@ -130,6 +147,7 @@
         </td>
         <img src="bank.PNG" width="200px" height="150px" >
     </tr>
+    <td><input type="button" id="ds" value="test" ></td>
 </table>
 </body>
 </html>

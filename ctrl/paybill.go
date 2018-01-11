@@ -10,8 +10,6 @@ import (
 func SendEmail(c *gin.Context){
 	c.Keys = headerKeys
 
-	fmt.Println("Ctrl Send Email ")
-
 	paybill := new(model.Paybill)
 	//err := c.BindJSON(paybill)
 	//if err != nil {

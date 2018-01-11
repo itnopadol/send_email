@@ -11,30 +11,254 @@
 
     <!-- Bootstrap -->
     <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-    <link type="text/css" href="CSS.css" rel="stylesheet">
+    <!--link type="text/css" href="CSS.css" rel="stylesheet">-->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-        .pull-left {float:left;}
-        .pull-right {float:right;}
-        .text-center {text-align:center;}
-    </style>
-    <style type="text/css" media="print">
-        input{
-            display:none;
+    <style type="text/css">
+       .body{
+            margin: 0 auto;
+            padding: 0;
+            min-width: 100%;
+            font-family: sans-serif;
+        }
+        .table{
+            margin: 50px 0 50px 0;
+        }
+        .header{
+            height: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content{
+            height: 100px;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        .subscribe{
+            height: 70px;
+            text-align: center;
+        }
+        #ds{
+            background-color: red;
+            text-align: center;
+            font-size: 18px;
+            font-family: sans-serif;
+            font-weight: bold;
+            padding: 0 30px 0 30px;
+        }
+        .button a{
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+        .buttonwrapper{
+            margin: 0 auto;
+        }
+        .footer{
+            text-transform: uppercase;
+            text-align: center;
+            height: 40px;
+            font-size: 14px;
+            font-style: italic;
+        }
+        .footer a{
+            color: #000000;
+            text-decoration: none;
+            font-style: normal;
         }
     </style>
 </head>
 
 <body id="Textbody" class="">
-    {{ range $paybill := .PayBill }}
+<!----Div หัวส่วนที่0---->
+<div class="text-center">
+    	<span class="pull-left"><table style="width:320px;">
+        <tr>
+        	<th align="left">บริษัท นพดลพานิชจำกัด<br>
+			สำนักงานใหญ่: 392 ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง
+      		<br>ต.ฟ้าฮ่าม อ.เมือง จ.เชียงใหม่ 50000
+      		<br>สาขา 1:183 หมู่ที่ 2 ต.ตันเปา อ.สันกำแพง จ.เชียงใหม่ 50130
+        	</th>
+        </tr>
+      	</table></span>
+    <span>&nbsp;</span>
+    <span class="pull-right">&nbsp;</span>
+</div>
+<!----ปิด Div หัวส่วนที่0---->
+<!----Div---->
+<div class="text-center">
+    <span class="pull-left">&nbsp;</span>
+    <span>&nbsp;</span>
+    <span class="pull-right">&nbsp;</span>
+</div>
+<!----ปิด Div---->
+<!----Div หัวส่วนที่1---->
+<div class="text-center">
+    <span class="pull-left">&nbsp;</span>
+    <span>&nbsp;</span>
+    <span class="pull-right">ใบแจ้งหนี้/Credit Statement</span>
+</div>
+<!----ปิด Div หัวส่วนที่1---->
+<!---- Div หัวส่วนที่2---->
+<div class="text-center">
+    <span class="pull-left">&nbsp;</span>
+    <span>&nbsp;</span>
+    <span class="pull-right">เลขที่ใบแจ้งหนี้ <strong>{{ range .}} {{.DocNo}} {{end}}</strong></span>
+</div>
+<!----ปิด Div หัวส่วนที่2---->
+<!---- Div หัวส่วนที่3---->
+<div class="text-center">
+    <span class="pull-left">&nbsp;</span>
+    <span>&nbsp;</span>
+    <span class="pull-right">เลขประจำตัวผู้เสียภาษี <strong>{{ range .}} {{.TaxNo}} {{end}}</strong></span>
+</div>
+<!----ปิด Div หัวส่วนที่3---->
 
-    {{ end }}
+<!---- Div หัวส่วนที่4---->
+<div class="text-center" >
+        <span class="pull-right">
+                <tr>
+                    <th align="left">วันที่ครบกำหนด : <strong>{{ range .}} {{.DueDate}} {{end}}</strong></th>
+                </tr>
+            </span>
+    <span class="pull-right">
+                <tr>
+                    <th align="left">วันที่สรุป : <strong>{{ range .}} {{.DocDate}} {{end}}</strong>&nbsp;&nbsp;</th>
+                </tr>
+        </span>
+</div>
+<!----ปิด Div หัวส่วนที่4---->
 
+<div>
+    <table style="size:500px;">
+        <tr>
+            <th align="left" id="padtatwo">เรื่อง  แจ้งยอดบัญชีถึงกำหนดชำระ<br>
+                เรียน ผู้จัดการ/คุณ <strong id="deb"></strong><br>
+                ที่อยู่ <strong id="add"></strong>  <br>
+                เบอร์โทรลูกค้า <strong id="phone"></strong><br>
+                </th>
+        </tr>
+    </table>
+</div>
+&nbsp;
+<div><span>
+    <table width="70%" cellspacing="1" bgcolor="#CCCCCC" align="center" border="1" >
+    	<caption>ทางบริษัทฯใคร่ขอความกรุณาท่านโปรดชำระเงินค่าสินค้าและบริการ ตามรายการใบกำกับข้างล่างนี้</caption>
+	<thead>
+  		<tr>
+            <th width="5%" bgcolor="#FFFFFF">No</th>
+            <th width="16%" bgcolor="#FFFFFF">ใบกำกับสินค้า</th>
+            <th width="10%" bgcolor="#FFFFFF">วันที่</th>
+            <th width="10%" bgcolor="#FFFFFF">วันครบกำหนด</th>
+            <th width="10%" bgcolor="#FFFFFF">จำนวนเงิน </th>
+            <th width="10%" bgcolor="#FFFFFF">ชำระแล้ว</th>
+            <th width="10%" bgcolor="#FFFFFF">ยอดคงค้าง</th>
+            <th width="40%" bgcolor="#FFFFFF">รายการสินค้า</th>
+		</tr>
+
+        {{range .}}
+            {{range .Subs}}
+
+                <tr bgcolor="#FFFFFF">
+                <td align='center'>1</td><td>{{.InvoiceNo}}</td><td>{{.InvoiceDate}}</td><td>{{.DueDateSub}}</td><td>{{.InvBalance}}</td><td></td><td>PayBalance</td><td>{{.ItemName}}</td></tr>
+            {{end}}
+        {{end}}
+
+        <tr bgcolor="#FFFFFF">
+        <td colspan="2" align='center'>รวมเป็นเงิน</td><td colspan="4" align='center'></td>{{ range .}} {{.SumOfInvoice}} {{end}}<td></td><td></td></tr>
+        </thead>
+		</table>
+        </span></div>
+<div align="left">
+    <ul>
+        <P>หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯจะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว กรณีชำระล่าช้าบริษัทฯ ขอคิดดอกเบี้ยในอัตรา 1.25% ต่อเดือนและค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระโดยการโอนเข้าบัญชี บริษัทนพดลพานิชจำกัด ดังนี้</P>
+    </ul>
+</div>
+<div align="center">
+    <!---รูป--->
+    <img src="bank.PNG" width="200" height="150" >
+</div>
+<div align="center">
+    <ul>
+			<span>เมื่อมีการโอนเงินให้กับบริษัทฯ ขอความกรุณาแจ้ง/ส่งรายละเอียดการชำระให้ทาง E-mail: cd@nopadol.com ,Line: 081-8837619 ,Fax: 053-244111
+            </span><br>
+    </ul>
+    <strong>หมายเหตุ</strong> <span>ท่านยังคงมีบัญชีเก่าที่ได้แจ้งหนี้ไปแล้ว และยังไม่ได้ชำระหนี้</span>
+</div>
+<div>
+    <table width="70%" cellspacing="1" bgcolor="#CCCCCC" align="center" border="1" >
+        <thead>
+        <tr>
+            <th width="5%" bgcolor="#FFFFFF">ลำดับ</th>
+            <th width="30%" bgcolor="#FFFFFF" align="left">เดือน/ปี</th>
+            <th width="10%" bgcolor="#FFFFFF">ยอดค้างชำระ</th>
+        </tr>
+        </thead>
+        <tbody>
+            {{ range .}}
+                {{range .Balance}}
+                <tr bgcolor="#FFFFFF">
+                <td align='center'>1</td> <td>{{.MonthName}}</td><td>{{.MonthBalance}}</td>
+                {{end}}
+            {{end}}
+        </tr>
+        <tr bgcolor="#FFFFFF">
+            <th colspan="2" align='right'>ผลรวมยอดค้างชำระ </th><td></td>
+        </tr>
+    </table>
+
+    <td><input type="button" id="ds" value="test" ></td>
+
+</div>
+<div align="center">
+    <span>บริษัทฯ ต้องขออภัยมา ณ ที่นี้ด้วย หากท่านชำระยอดคงค้างเรียบร้อยแล้ว</span>
+    <table align="center" id="tablecolor" class="tacenter">
+        <th>ติดต่อแผนกสินเชื่อ</th>
+        <th align="left">โทร(053)2403777 ต่อ 500,511,512,โทรสาร (053)244111</th>
+        <tr>
+            <td></td>
+            <td>โทร081-8837619 คุณธนยศ,คุณเบญจวรรณ โทร.081-6710875 คุณณัฏฐ์ชยาภรณ์ โทร.081-6815780 คุณวิไลวรรณ</td>
+        </tr>
+    </table>
+</div>
+<input type="submit" name="Submit" value=" PRINT " onClick="javascript:this.style.display='none';window.print()">
+<script>
+
+    var invoice , x; //เลขใบแจ้งหนี้
+    var Taxpayer, T; //เลขประจำตัวผู้เสียภาษี
+    var Datesum ,DT; //วันที่สรุป
+    var Dateset ,DS; //วันที่ครบกำหนด
+    var Debtor , N; //ชื่อลูกหนี้
+    var address , AD; //ที่อยู่ของลูกหนี้
+    var phone , TEL; //เบอร์ติดต่อ
+
+    invoice = {"name" : "เลขใบแจ้งหนี้มานีมานะ"};
+    Taxpayer = {"name" : "115011121314"};
+    Datesum = {"name" : "00:00:0000"};
+    Dateset = {"name" : "00:00:0000"};
+    Debtor  = {"name" : "ลูกค้า"};
+    address = {"name" : "อยู่ที่ไหน"};
+    phone = {"name" : "0800000000"};
+    x = invoice.name;
+    T = Taxpayer.name;
+    DT = Datesum.name;
+    DS = Dateset.name;
+    N = Debtor.name;
+    AD = address.name;
+    TEL = phone.name;
+    document.getElementById("inv2").innerHTML = x;
+    document.getElementById("tax2").innerHTML = T;
+    document.getElementById("dat1").innerHTML = DT;
+    document.getElementById("dat2").innerHTML = DS;
+    document.getElementById("deb").innerHTML = N;
+    document.getElementById("add").innerHTML = AD;
+    document.getElementById("phone").innerHTML = TEL;
+</script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or   include individual files as needed -->
