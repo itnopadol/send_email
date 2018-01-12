@@ -43,6 +43,7 @@ type PaybillSub struct{
 	PayAmount float64 `json:"pay_amount" db:"PayAmount"`
 	PayBalance float64 `json:"pay_balance" db:"PayBalance"`
 	ItemName string `json:"item_name" db:"ItemName"`
+	LineNumber int `json:"line_number" db:"LineNumber"`
 }
 
 type BillBalance struct{
@@ -77,7 +78,7 @@ func (p *Paybill)TestEmail(db *sqlx.DB) (paybills []*Paybill , err error){
 	}
 
 	for _, pp := range paybills{
-		sqlsub := `select	InvoiceNo,InvoiceDate,InvBalance,InvBalance,PayBalance,DueDate,(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName from	dbo.bcpaybillsub a inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate where	a.arcode = ? and a.docno = ?`
+		sqlsub := `select InvoiceNo,InvoiceDate,InvBalance,InvBalance,PayBalance,DueDate,LineNumber+1 as LineNumber,(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName from	dbo.bcpaybillsub a inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate where	a.arcode = ? and a.docno = ?`
 		fmt.Println("query sub= ", sqlsub, pp.ArCode, pp.DocNo)
 		err = db.Select(&pp.Subs, sqlsub, pp.ArCode, pp.DocNo)
 		if err != nil {
@@ -98,10 +99,10 @@ func (p *Paybill)TestEmail(db *sqlx.DB) (paybills []*Paybill , err error){
 
 
 
-	subject := "Hello Email"
+	subject := "Send PayBill"
 	receiver:= "it@nopadol.com"
 	r := NewRequest([]string{receiver}, subject)
-	r.Send("templates/paybill.html",paybills)//,map[string]string{"ArName": "satit","ArCode" : "chomwattana"})
+	r.Send("templates/test.html",paybills)//,map[string]string{"ArName": "satit","ArCode" : "chomwattana"})
 
 	return paybills, nil
 }

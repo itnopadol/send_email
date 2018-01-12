@@ -3,518 +3,82 @@
 <head>
 
     <style type="text/css">
-        .navbar {
-            background: #3d98e2;
-            height: 50px;
-            overflow: hidden;
-            position: fixed; /* Set the navbar to fixed position */
-            top: 0; /* Position the navbar at the top of the page */
-            width: 100%; /* Full width */
-        }
 
-        input[type="text"]:disabled {
-            background: #fff;
+        .bodyBody {
+            margin: 10px;
+            font-size: 1.50em;
         }
-        .navleft {
-            width: 70px;
-            /*border: 1px yellow solid;*/
-            padding-left: 1%;
-            float: left;
-        }
-        .navleft img{
-            width: 50px;
-            margin: 1%;
-            padding: 1%;
-        }
-        .navright {
-            /*border: 1px red solid;*/
-            width: 75%;
-            font-size: 45px;
-            color: #fff;
-            line-height: 45px;
-            float: left;
-        }
-
-        .profile {
-            float: right;
-            padding-top: 0.25%;
-            /*border:1px solid #fff;*/
-            width: 20%;
-        }
-        .profile .img-pro {
-            width: 50px;
-            height: 50px;
-            float: left;
-            padding-right: 1%;
-        }
-        .profile .img-pro img {
-            width: 100%;
-            border-radius:50%;
-            padding: 2%;
-        }
-        .profile .detail-pro {
-            width: 70%;
-            color: #fff;
-            float: left;
-            padding-left: 3%;
-            /*border:1px yellow solid;*/
-            height: 100%;
-        }
-
-        .Cont {
-            /*background: yellow;*/
-            margin-top: 55px;
-            padding: 0.5%;
-            position: static;
-            overflow: auto;
-        }
-
-        .T-r {
-            /*border: 1px solid red;*/
-            height: 130px;
-            width: 50%;
-            float: right;
-        }
-
-        .Tr-l {
-            /*border: 1px solid blue;*/
-            height: 60%;
-            width: 35%;
-            float: left;
-            padding: 1%;
-            text-align: center;
-            font-size: 25px;
-            font-weight: bold;
-            word-wrap: break-word;
-            color: #dedfe0;
-        }
-        .Tr-l i{
-            font-size: 40px;
-            margin-top: 2%;
-            line-height: 50px;
-        }
-
-        .Tr-r {
-            border-left: 2px solid #dedfe0;
-            height: 60%;
-            width: 65%;
-            float: left;
-            padding: 2%;
-            padding-left: 0;
+        .divHeader-L {
             text-align: right;
-            word-wrap: break-word;
-            font-size: 60px;
-            line-height: 40px;
-        }
-
-        .status {
-            clear: both;
-            width: 100%;
-            height: 40%;
-            text-align: left;
-            font-size: 30px;
-            line-height: 40px;
-            font-weight: bold;
-            padding-top: 2%;
-            padding-left: 5%;
-            margin-bottom: 5%;
-        }
-
-        .T-l {
-            width: 25%;
-            height: 130px;
-            /*border: 1px solid blue;*/
+            /*border: 1px solid;*/
+            height: 180px;
+            width: 650px;
             float: left;
-            padding: 0.5%;
-            margin-bottom: 0.5%;
         }
-        .lb-l {
-            width: 40%;
-            border: 1px solid #cecece;
-            border-right: 0;
-            height: 40px;
-            float: left;
-            clear: both;
-            padding: 3% 5%;
+        .divHeader-R {
             text-align: right;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .lb-r {
-            width: 60%;
-            border: 1px solid #cecece;
-            border-left: 0;
-            height: 40px;
-            float: left;
-        }
-        .lb-r .input {
-            border: 0;
-            height: 90%;
-            position: static;
-        }
-
-        .lb-r select {
-            width: 98%;
-            height: 90%;
-            margin:1% 1%;
-            background: #fff;
-            border: 0;
-            cursor: pointer;
-            text-align: right;
-        }
-
-        .lb-r option {
-            text-align: right;
-        }
-
-        .lb-r i{
-            border: 1px solid gray;
-            border-radius: 4px;
-            padding: 2%;
-            margin: 2% 1%;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .lb-r i:active {
-            background: #cecece;
-        }
-
-        .lb-r .date {
-            height: 35px;
-            margin-top: 0.6%;
-            width: 70%;
-            text-align: right;
-            padding-right: 10%;
-            cursor: pointer;
-            position: static;
-        }
-
-        .QT-body {
-            width: 100%;
-            height: 200px;
-            border: 1px solid gray;
-            clear: both;
-        }
-
-        .btt {
-            width: 100%;
-            height: 230px;
-            clear: both;
-        }
-
-        .btt-block {
-            width: 25%;
-            height: 100%;
-            border-right: 1px solid gray;
-            float: left;
-        }
-
-        .btt-block .lb-l,.btt-block .lb-r {
-            border: 0;
-            font-size: 12px;
-            text-align: left;
-            margin: 0.5% 0;
-        }
-
-        .btt-block .lb-r input {
-            font-size: 12px;
-            text-align: right;
-        }
-
-        .tarea {
-            clear: both;
-            font-weight: bold;
-            font-size: 12px;
-            width: 100%;
-            padding-left: 5%;
-        }
-        .btt-block textarea {
-            font-size: 12px;
-            width: 90%;
-            margin-left: 5%;
-            margin-right: 5%;
-            padding: 1%;
-        }
-
-        .Dstock {
-            width: 100%;
-            height: 30px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .Dstock .stItem, .Dstock .weightItem {
-            width: 50%;
-            height: 100%;
-            padding: 0.5% 2%;
-            float: left;
-        }
-
-        .Hsearch {
-            height: 60px;
-            width: 100%;
-            position: static;
-        }
-
-        .H-list {
-            width: 95%;
-            border: 1px solid #ced9dd;
-            height: 100px;
-            clear: both;
-            position: static;
-            margin: 0 2.5%;
-            cursor: pointer;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-user-drag: none;
-            user-drag: none;
-        }
-        .H-list * {
-            position: static;
-        }
-
-        .H-list:active {
-            background: #ced9dd;
-        }
-
-        .H-list-img {
-            width: 100px;
-            height: 100px;
-            overflow: hidden;
-            padding: 1%;
-            float: left;
-        }
-        .H-list-img img {
-            width: 100%;
-        }
-
-        .H-list-detail {
-            padding: 0.5%;
-            float: left;
-            font-size: 12px;
-            word-wrap: break-word;
-            color: gray;
-            width: 70%;
-        }
-
-        .H-list-dtitle {
-            font-weight: bold;
-            color: #000;
-            font-size: 14px;
-        }
-
-        .H-list .appp {
-            width: 5%;
-            height: 100%;
-            background: #31aa01;
-            float: right;
-            text-align: center;
-            color: #fff;
-        }
-        .H-list .del {
-            width: 5%;
-            height: 100%;
-            background: red;
-            float: right;
-            color: #fff;
-            text-align: center;
-        }
-        .H-list .del i, .H-list .appp i{
-            font-size: 40px;
-            margin-top: 40%;
-        }
-
-        .H-list .del:active {
-            background: #d62000;
-        }
-
-        .H-list .appp:active {
-            background: #269604;
-        }
-
-        .Hsearch .HS-l {
-            width: 15%;
-            text-align: right;
-            padding-right: 3%;
-            float: left;
-            /*border: 1px solid black;*/
-            font-size: 20px;
-            padding: 1%;
-            position: static;
-        }
-
-        .Hsearch .HS-c {
-            width: 40%;
-            text-align: left;
-            padding-left: 3%;
-            float: left;
-            /*border: 1px solid black;*/
-            padding: 0.2% 0;
-            position: static;
-        }
-        .Hsearch .HS-c .input { position: static; }
-
-        .Hsearch .HS-r {
-            width: 10%;
-            text-align: left;
-            float: left;
-            /*border: 1px solid black;*/
-            padding: 0.2% 0;
-            margin-bottom: 0.5%;
-            position: static;
-        }
-        .Hsearch .HS-r .button {
-            width: 100%;
-            margin: 0 5%;
-            position: static;
-        }
-        .Hsearch .HS-select {
-            width: 30%;
-            text-align:right;
-            float: left;
-            /*border: 1px solid red;
-            height: 100%;*/
-        }
-
-        .Hsearch .HS-select select {
-            width:95%;
-            height:35px;
-            margin-top:0.5%;
-            background:#fff;
-            cursor:pointer;
-        }
-
-        .Hsearch .HS-select .HS-select-l {
-            width:40%;
-            float:left;
-            font-size: 18px;
-            padding-top: 2.5%;
-        }
-
-        .Hsearch .HS-select .HS-select-r {
-            width:60%;
-            float:left;
-            text-align:right;
-        }
-
-        nav.pagination {
-            width: 100%;
-            padding-left: 40%;
-        }
-
-        .L-logo {
+            /*border: 1px solid;*/
+            height: 180px;
             width: 350px;
-            height: 350px;
-            margin: auto;
+            float: left;
         }
-        .L-logo img {
-            padding: 1%;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+        .divHeader-C {
+            text-align: left;
+            /*border: 1px solid;*/
+            height: 50px;
+            width: 800px;
+            float: left;
         }
-        .L-form {
-            width: 80%;
-            margin: auto;
-        }
-
-        .cancel_doc {
-            color: red
-        }
-
-        #dataList {
-            width:100%;
-            max-height: 510px;
-            overflow:auto;
-            /*border: 1px solid red;*/
-        }
-
-        /* modal */
-
-        .modal .modal-content {
-            width: 80%;
-            height: 100%;
-            background: #fff;
-            border-radius: 9px;
-        }
-
-        .modal .modal-card-head {
-            background: #1a8aba;
-        }
-        .modal .modal-card-head .modal-card-title {
-            color: #fff;
-            font-weight: bold;
-        }
-
-        .modal .S-l {
-            width: 15%;
+        .divHeader-L1 {
             text-align: right;
-            padding-right: 3%;
+            /*border: 1px solid;*/
+            height: 130px;
+            width: 650px;
             float: left;
-            /*border: 1px solid black;*/
-            font-size: 20px;
-            padding: 1%;
         }
-
-        .modal .S-c {
-            width: 55%;
-            text-align: left;
-            padding-left: 3%;
+        .divHeader-L2 {
+            text-align: right;
+            /*border: 1px solid;*/
+            height: 500px;
+            width: 800px;
             float: left;
-            /*border: 1px solid black;*/
-            padding: 0.2% 0;
         }
-
-        .modal .S-r {
-            width: 30%;
+        .divReturnAddress {
             text-align: left;
             float: left;
-            /*border: 1px solid black;*/
-            padding: 0.2% 0;
-            margin-bottom: 0.5%;
+            width: 80%;
+            font-size: 40px;
         }
-
-        .modal .S-r .button {
-            width: 70%;
-            margin: 0 5%;
+        .divReturnDocNo {
+            text-align: left;
+            float: left;
+            width: 80%;
+            font-size: 40px;
         }
-
-        .mo-list {
-            width: 100%;
-            border: 1px solid #ced9dd;
-            height: 150px;
+        .divSubject {
             clear: both;
-            cursor: pointer;
-        }
-
-        .mo-list-img {
-            width: 150px;
-            height: 150px;
-            overflow: hidden;
-            padding: 1%;
-            float: left;
-        }
-        .mo-list-img img {
-            width: 100%;
-        }
-
-        .mo-list-detail {
-            padding: 2%;
-            float: left;
-            font-size: 14px;
-            word-wrap: break-word;
-            color: gray;
-        }
-
-        .mo-list-title {
             font-weight: bold;
-            color: #000;
+            padding-top: 80px;
+        }
+        .divAdios {
+            float: right;
+            padding-top: 50px;
+        }
+        h1 {
+            color: blue;
+            font-family: "TH Sarabun New";
+            font-size: 24px;
+        }
+        p  {
+            color: blue;
+            font-family: "TH Sarabun New";
+            font-size: 22px;
+        }
+        p1  {
+            color: black;
+            font-family: "TH Sarabun New";
+            font-style: normal;
+            font-size: 18px;
         }
     </style>
 
@@ -527,190 +91,75 @@
 <span>Center Text</span>
 <span class="pull-right">Right text</span>
 </div>-->
-<body id="Textbody" class="">
+<body id="Textbody" class="bodyBody">
 <!----Div หัวส่วนที่0---->
-<div class="text-center">
-    	<span class="pull-left"><table style="width:320px;">
-        <tr>
-        	<th align="left">บริษัท นพดลพานิชจำกัด<br>
-			สำนักงานใหญ่: 392 ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง
-      		<br>ต.ฟ้าฮ่าม อ.เมือง จ.เชียงใหม่ 50000
-      		<br>สาขา 1:183 หมู่ที่ 2 ต.ตันเปา อ.สันกำแพง จ.เชียงใหม่ 50130
-        	</th>
-        </tr>
-      	</table></span>
-    <span>&nbsp;</span>
-    <span class="pull-right">&nbsp;</span>
+<div class="divHeader-L">
+    <div class="divReturnAddress">
+        <h1> บริษัท นพดลพานิช จำกัด</h1>
+        <p> สำนักงานใหญ่ : 392 ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง <br/>
+        ต.ฟ้าฮ่าม อ.เมือง จ.เชียงใหม่ 50000 <br/>
+        สาขา 1 : 183 หมู่ที่ 2 ต.ตันเปา อ.สันกำแพง จ.เชียงใหม่ 50130 </p>
+    </div>
 </div>
-<!----ปิด Div หัวส่วนที่0---->
-<!----Div---->
-<div class="text-center">
-    <span class="pull-left">&nbsp;</span>
-    <span>&nbsp;</span>
-    <span class="pull-right">&nbsp;</span>
+<div class="divHeader-R">
+    <div class="divReturnDocNo">
+        <p>ใบแจ้งหนี้ / Credit Statement<br/>
+            เลขที่ใบแจ้งหนี้ {{range .}} {{.DocNo}} {{end}}<br/>
+            เลขที่ประตัวผู้เสียภาษี {{range .}} {{.TaxNo}} {{end}}<br/>
+            วันที่สรุป  {{range .}} {{.DocDate}} {{end}} <br/>
+            วันที่ครบกำหนด {{range .}} {{.DueDate}} {{end}} <br/>
+        </p><br/>
+    </div>
 </div>
-<!----ปิด Div---->
-<!----Div หัวส่วนที่1---->
-<div class="text-center">
-    <span class="pull-left">&nbsp;</span>
-    <span>&nbsp;</span>
-    <span class="pull-right">ใบแจ้งหนี้/Credit Statement</span>
+<div class="divHeader-L1">
+    <div class="divReturnAddress">
+        <h1>เรื่อง แจ้งยอดบัญชีถึงกำหนดชำระ </h1>
+        <p>เรียน ผู้จัดการ/  {{range .}} {{.ArName}} {{end}} <br/>
+            ที่อยู่ {{range .}} {{.BillAddress}} {{end}} <br/>
+        </p>
+        <br/>
+    </div>
 </div>
-<!----ปิด Div หัวส่วนที่1---->
-<!---- Div หัวส่วนที่2---->
-<div class="text-center">
-    <span class="pull-left">&nbsp;</span>
-    <span>&nbsp;</span>
-    <span class="pull-right">เลขที่ใบแจ้งหนี้ <strong id="inv2"></strong></span>
+<div class="divHeader-C">
+    <p>ทางบริษัทฯ ใคร่ขอความกรุณาท่าน โปรดชำระเงินค่าสินค้าและบริการ ตามรายการใบกำกับข้างล่างนี้</p>
 </div>
-<!----ปิด Div หัวส่วนที่2---->
-<!---- Div หัวส่วนที่3---->
-<div class="text-center">
-    <span class="pull-left">&nbsp;</span>
-    <span>&nbsp;</span>
-    <span class="pull-right">เลขประจำตัวผู้เสียภาษี <strong id="tax2"></strong></span>
-</div>
-<!----ปิด Div หัวส่วนที่3---->
 
-<!---- Div หัวส่วนที่4---->
-<div class="text-center" >
-        <span class="pull-right">
-                <tr>
-                    <th align="left">วันที่ครบกำหนด : <strong id="dat1"> </strong></th>
-                </tr>
-            </span>
-    <span class="pull-right">
-                <tr>
-                    <th align="left">วันที่สรุป : <strong id="dat2"> </strong>&nbsp;&nbsp;</th>
-                </tr>
-        </span>
-</div>
-<!----ปิด Div หัวส่วนที่4---->
 
-<div>
-    <table style="size:500px;">
-        <tr>
-            <th align="left" id="padtatwo">เรื่อง  แจ้งยอดบัญชีถึงกำหนดชำระ<br>
-                เรียน ผู้จัดการ/คุณ <strong id="deb"></strong><br>
-                ที่อยู่ <strong id="add"></strong>  <br>
-                เบอร์โทรลูกค้า <strong id="phone"></strong><br>
-                </th>
-        </tr>
-    </table>
-</div>
-&nbsp;
 <div><span>
-    <table width="70%" cellspacing="1" bgcolor="#CCCCCC" align="center" border="1" >
-    	<caption>ทางบริษัทฯใคร่ขอความกรุณาท่านโปรดชำระเงินค่าสินค้าและบริการ ตามรายการใบกำกับข้างล่างนี้</caption>
+    <table width="100%" cellspacing="1px" bgcolor="#CCCCCC" align="center" border="0" >
+
 	<thead>
   		<tr>
-            <th width="5%" bgcolor="#FFFFFF">No</th>
-            <th width="16%" bgcolor="#FFFFFF">ใบกำกับสินค้า</th>
-            <th width="10%" bgcolor="#FFFFFF">วันที่</th>
-            <th width="10%" bgcolor="#FFFFFF">วันครบกำหนด</th>
-            <th width="10%" bgcolor="#FFFFFF">จำนวนเงิน </th>
-            <th width="10%" bgcolor="#FFFFFF">ชำระแล้ว</th>
-            <th width="10%" bgcolor="#FFFFFF">ยอดคงค้าง</th>
-            <th width="40%" bgcolor="#FFFFFF">รายการสินค้า</th>
+            <th width="5%" bgcolor="#1e90ff" font-size="12px"><p1>No</p1></th>
+            <th width="16%" bgcolor="#1e90ff"><P1>ใบกำกับสินค้า</P1></th>
+            <th width="10%" bgcolor="#1e90ff"><P1>วันที่</P1></th>
+            <th width="10%" bgcolor="#1e90ff"><p1>วันที่ครบกำหนด</P1></th>
+            <th width="10%" bgcolor="#1e90ff"><P1>จำนวนเงิน</P1></th>
+            <th width="10%" bgcolor="#1e90ff"><P1>ชำระแล้ว</P1></th>
+            <th width="10%" bgcolor="#1e90ff"><P1>ยอดคงค้าง</P1></th>
+            <th width="40%" bgcolor="#1e90ff"><P1>รายการสินค้า</P1></th>
 		</tr>
 
+        {{range .}}
+        {{range .Subs}}
+
         <tr bgcolor="#FFFFFF">
-        <td align='center'>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr bgcolor="#FFFFFF">
-        <td align='center'>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr bgcolor="#FFFFFF">
-        <td align='center'>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr bgcolor="#FFFFFF">
-        <td align='center'>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr bgcolor="#FFFFFF">
-        <td colspan="2" align='center'>รวมเป็นเงิน</td><td colspan="4" align='center'></td><td></td><td></td></tr>
-        </thead>
+            <td align='center'><p>{{.LineNumber}}</p></td><td align='center'><p>{{.InvoiceNo}}</p></td><td align='center'><p>{{.InvoiceDate}}</p></td><td align='center'><p>{{.DueDateSub}}</p></td><td align='right'><p>{{.InvBalance}}</p></td><td></td><td align='right'><p>{{.PayBalance}}</p></td><td><p>{{.ItemName}}</p></td></tr>
+        {{end}}
+        {{end}}
+        <tr bgcolor="#1e90ff">
+        <td colspan="2" align='center'><p1>รวมเป็นเงิน</p1></td><td colspan="4" align='center'></td><p1>{{ range .}} {{.SumOfInvoice}} {{end}}</p1><td></td><td></td></tr>
+    </thead>
 		</table>
-        </span></div>
-<div align="left">
-    <ul>
-        <P>หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯจะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว กรณีชำระล่าช้าบริษัทฯ ขอคิดดอกเบี้ยในอัตรา 1.25% ต่อเดือนและค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระโดยการโอนเข้าบัญชี บริษัทนพดลพานิชจำกัด ดังนี้</P>
-    </ul>
+        </span>
 </div>
-<div align="center">
-    <!---รูป--->
-    <img src="bank.PNG" width="200" height="150" >
+<div class="divHeader-C">
+    <p>หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯจะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว </p>
+    <p>กรณีชำระล่าช้าบริษัทฯ ขอคิดดอกเบี้ยในอัตรา 1.25% ต่อเดือนและค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระโดยการโอนเข้าบัญชี บริษัทนพดลพานิชจำกัด ดังนี้</p>
 </div>
-<div align="center">
-    <ul>
-			<span>เมื่อมีการโอนเงินให้กับบริษัทฯ ขอความกรุณาแจ้ง/ส่งรายละเอียดการชำระให้ทาง E-mail: cd@nopadol.com ,Line: 081-8837619 ,Fax: 053-244111
-            </span><br>
-    </ul>
-    <strong>หมายเหตุ</strong> <span>ท่านยังคงมีบัญชีเก่าที่ได้แจ้งหนี้ไปแล้ว และยังไม่ได้ชำระหนี้</span>
-</div>
-<div>
-    <table width="70%" cellspacing="1" bgcolor="#CCCCCC" align="center" border="1" >
-        <thead>
-        <tr>
-            <th width="5%" bgcolor="#FFFFFF">ลำดับ</th>
-            <th width="30%" bgcolor="#FFFFFF" align="left">เดือน/ปี</th>
-            <th width="10%" bgcolor="#FFFFFF">ยอดค้างชำระ</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr bgcolor="#FFFFFF">
-            <td align='center'>1</td> <td></td><td></td>
-        </tr>
-        <tr bgcolor="#FFFFFF">
-            <td align='center'>2</td><td></td> <td></td>
-        </tr>
-        <tr bgcolor="#FFFFFF">
-            <td align='center'>3</td><td></td> <td></td>
-        </tr>
-        <tr bgcolor="#FFFFFF">
-            <th colspan="2" align='right'>ผลรวมยอดค้างชำระ </th><td></td>
-        </tr>
-    </table>
-</div>
-<div align="center">
-    <span>บริษัทฯ ต้องขออภัยมา ณ ที่นี้ด้วย หากท่านชำระยอดคงค้างเรียบร้อยแล้ว</span>
-    <table align="center" id="tablecolor" class="tacenter">
-        <th>ติดต่อแผนกสินเชื่อ</th>
-        <th align="left">โทร(053)2403777 ต่อ 500,511,512,โทรสาร (053)244111</th>
-        <tr>
-            <td></td>
-            <td>โทร081-8837619 คุณธนยศ,คุณเบญจวรรณ โทร.081-6710875 คุณณัฏฐ์ชยาภรณ์ โทร.081-6815780 คุณวิไลวรรณ</td>
-        </tr>
-    </table>
-</div>
-<input type="submit" name="Submit" value=" PRINT " onClick="javascript:this.style.display='none';window.print()">
-<script>
 
-    var invoice , x; //เลขใบแจ้งหนี้
-    var Taxpayer, T; //เลขประจำตัวผู้เสียภาษี
-    var Datesum ,DT; //วันที่สรุป
-    var Dateset ,DS; //วันที่ครบกำหนด
-    var Debtor , N; //ชื่อลูกหนี้
-    var address , AD; //ที่อยู่ของลูกหนี้
-    var phone , TEL; //เบอร์ติดต่อ
 
-    invoice = {"name" : "เลขใบแจ้งหนี้มานีมานะ"};
-    Taxpayer = {"name" : "115011121314"};
-    Datesum = {"name" : "00:00:0000"};
-    Dateset = {"name" : "00:00:0000"};
-    Debtor  = {"name" : "ลูกค้า"};
-    address = {"name" : "อยู่ที่ไหน"};
-    phone = {"name" : "0800000000"};
-    x = invoice.name;
-    T = Taxpayer.name;
-    DT = Datesum.name;
-    DS = Dateset.name;
-    N = Debtor.name;
-    AD = address.name;
-    TEL = phone.name;
-    document.getElementById("inv2").innerHTML = x;
-    document.getElementById("tax2").innerHTML = T;
-    document.getElementById("dat1").innerHTML = DT;
-    document.getElementById("dat2").innerHTML = DS;
-    document.getElementById("deb").innerHTML = N;
-    document.getElementById("add").innerHTML = AD;
-    document.getElementById("phone").innerHTML = TEL;
-</script>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or   include individual files as needed -->
