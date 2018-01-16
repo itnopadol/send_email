@@ -102,7 +102,7 @@ func (p *Paybill)TestEmail(db *sqlx.DB) (paybills []*Paybill , err error){
 	subject := "Send PayBill"
 	receiver:= "it@nopadol.com"
 	r := NewRequest([]string{receiver}, subject)
-	r.Send("templates/test.html",paybills)//,map[string]string{"ArName": "satit","ArCode" : "chomwattana"})
+	r.Send("templates/invoice_new.html",paybills)//,map[string]string{"ArName": "satit","ArCode" : "chomwattana"})
 
 	return paybills, nil
 }
