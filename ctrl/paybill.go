@@ -31,3 +31,28 @@ func SendEmail(c *gin.Context){
 	}
 
 }
+
+
+//func ShowEmail(c *gin.Context){
+//	c.Keys = headerKeys
+//
+//	paybill := new(model.Paybill)
+//	err := paybill.ShowEmail(dbc)
+//	if err != nil {
+//		fmt.Println(err.Error())
+//	}
+//	fmt.Println("Ctrl Send Email ")
+//}
+
+func X(c *gin.Context) {
+		c.Keys = headerKeys
+
+		paybill := new(model.Paybill)
+		p, err := paybill.ShowEmail(dbc)
+		if err != nil {
+			fmt.Println(err.Error())
+		}
+		c.HTML(http.StatusOK, "test.html", p)
+
+}
+

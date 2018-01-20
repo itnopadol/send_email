@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6a9df651-3e9e-4445-a1a3-cac0967276fe" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ctrl/paybill.go" afterPath="$PROJECT_DIR$/ctrl/paybill.go" />
+      <change beforePath="$PROJECT_DIR$/main.go" afterPath="$PROJECT_DIR$/main.go" />
       <change beforePath="$PROJECT_DIR$/model/paybill.go" afterPath="$PROJECT_DIR$/model/paybill.go" />
-      <change beforePath="$PROJECT_DIR$/templates/test.html" afterPath="$PROJECT_DIR$/templates/test.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,43 +16,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="paybill.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="paybill.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/paybill.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="101" column="29" lean-forward="false" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
+            <state relative-caret-position="261">
+              <caret line="95" column="16" lean-forward="false" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
               <folding>
-                <marker date="1515984342801" expanded="true" signature="2197:2354" ph="select ArCod... bcpaybill" />
+                <element signature="e#15#118#0" expanded="true" />
+                <marker date="1516436690977" expanded="true" signature="2135:2292" ph="select ArCod... bcpaybill" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="invoice.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/invoice.html">
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="171">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="e#14#244#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tmpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.tmpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paybill.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/paybill.html">
+      <file leaf-file-name="paybill.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ctrl/paybill.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3026">
-              <caret line="178" column="357" lean-forward="false" selection-start-line="178" selection-start-column="8" selection-end-line="178" selection-end-column="357" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="87" column="31" lean-forward="false" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
+            <state relative-caret-position="239">
+              <caret line="50" column="40" lean-forward="true" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -72,6 +76,8 @@
     <findStrings>
       <find>MIME</find>
       <find>button</find>
+      <find>parseTemplatePage</find>
+      <find>TestEmail1</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="C:\Go" />
@@ -92,13 +98,15 @@
         <option value="$PROJECT_DIR$/model/init.go" />
         <option value="$PROJECT_DIR$/ctrl/resp.go" />
         <option value="$PROJECT_DIR$/templates/css1.css" />
-        <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/templates/CSS.css" />
         <option value="$PROJECT_DIR$/templates/template.html" />
-        <option value="$PROJECT_DIR$/ctrl/paybill.go" />
         <option value="$PROJECT_DIR$/templates/paybill.html" />
-        <option value="$PROJECT_DIR$/model/paybill.go" />
         <option value="$PROJECT_DIR$/templates/test.html" />
+        <option value="$PROJECT_DIR$/templates/layout.html" />
+        <option value="$PROJECT_DIR$/templates/index.tmpl" />
+        <option value="$PROJECT_DIR$/ctrl/paybill.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/model/paybill.go" />
       </list>
     </option>
   </component>
@@ -134,6 +142,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -165,11 +174,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../api_pos" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../smart_api" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -219,7 +227,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -244,27 +252,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/paybill.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/resp.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/init.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -306,7 +293,8 @@
         <state relative-caret-position="646">
           <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
           <folding>
-            <marker date="1515984342801" expanded="true" signature="2197:2354" ph="select ArCod... bcpaybill" />
+            <element signature="e#15#118#0" expanded="true" />
+            <marker date="1516436690977" expanded="true" signature="2135:2292" ph="select ArCod... bcpaybill" />
           </folding>
         </state>
       </provider>
@@ -323,7 +311,8 @@
         <state relative-caret-position="459">
           <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <marker date="1515984342801" expanded="true" signature="2197:2354" ph="select ArCod... bcpaybill" />
+            <element signature="e#15#118#0" expanded="true" />
+            <marker date="1516436690977" expanded="true" signature="2135:2292" ph="select ArCod... bcpaybill" />
           </folding>
         </state>
       </provider>
@@ -503,10 +492,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/ctrl/init.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="188">
+          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/invoice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -517,17 +513,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/paybill.go">
+    <entry file="file://C:/Go/src/html/template/template.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/init.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        <state relative-caret-position="132">
+          <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -539,29 +529,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/invoice.html">
+    <entry file="file://$PROJECT_DIR$/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="111" column="10" lean-forward="false" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.tmpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/paybill.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="50" column="40" lean-forward="true" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#244#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/paybill.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="101" column="29" lean-forward="false" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
+        <state relative-caret-position="261">
+          <caret line="95" column="16" lean-forward="false" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
           <folding>
-            <marker date="1515984342801" expanded="true" signature="2197:2354" ph="select ArCod... bcpaybill" />
+            <element signature="e#15#118#0" expanded="true" />
+            <marker date="1516436690977" expanded="true" signature="2135:2292" ph="select ArCod... bcpaybill" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="87" column="31" lean-forward="false" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>

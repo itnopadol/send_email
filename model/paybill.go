@@ -7,12 +7,7 @@ import (
 	"net/smtp"
 	"log"
 	"html/template"
-	//"net/http"
-	//"path"
-	//"image"
-	//"image/jpeg"
-	//"strconv"
-	"net/http"
+//	"net/http"
 )
 
 type Paybill struct{
@@ -97,19 +92,22 @@ func (p *Paybill)TestEmail(db *sqlx.DB) (paybills []*Paybill , err error){
 	}
 
 
-
-
 	subject := "Send PayBill"
 	receiver:= "it@nopadol.com"
 	r := NewRequest([]string{receiver}, subject)
-	r.Send("templates/invoice_new.html",paybills)//,map[string]string{"ArName": "satit","ArCode" : "chomwattana"})
-
+	r.Send("templates/test.html",paybills)//,map[string]string{"ArName": "satit","ArCode" : "chomwattana"})
 	return paybills, nil
 }
 
 func NewRequest(to []string, subject string) *Request {
 	return &Request{
 		to:      to,
+		subject: subject,
+	}
+}
+
+func NewRequest1( subject string) *Request {
+	return &Request{
 		subject: subject,
 	}
 }
@@ -130,14 +128,6 @@ var (
 	templates *template.Template
 )
 
-func index(w http.ResponseWriter, r *http.Request) {
-
-	err := templates.ExecuteTemplate(w, "index.html", nil)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-}
-
 func (r *Request) parseTemplate(fileName string, data interface{}) error {
 	t, err := template.ParseFiles(fileName)
 	if err != nil {
@@ -152,6 +142,7 @@ func (r *Request) parseTemplate(fileName string, data interface{}) error {
 }
 
 func (r *Request) sendEmail() bool {
+	r.body = "http://localhost:8099/email/html"
 	body := "To: " + r.to[0] + "\r\nSubject: " + r.subject + "\r\n" + MIME + "\r\n" + r.body
 	SMTP := fmt.Sprintf("%s:%d", "smtp.gmail.com", 587)
 	if err := smtp.SendMail(SMTP, smtp.PlainAuth("", "nopadol_mailauto@nopadol.com", "[vdw,jwfh2012", "smtp.gmail.com"), "satit@nopadol.com", r.to, []byte(body)); err != nil {
@@ -160,16 +151,49 @@ func (r *Request) sendEmail() bool {
 	return true
 }
 
-//func writeImage(w http.ResponseWriter, img *image.Image) {
-//
-//	buffer := new(bytes.Buffer)
-//	if err := jpeg.Encode(buffer, *img, nil); err != nil {
-//		log.Println("unable to encode image.")
-//	}
-//
-//	w.Header().Set("Content-Type", "image/jpeg")
-//	w.Header().Set("Content-Length", strconv.Itoa(len(buffer.Bytes())))
-//	if _, err := w.Write(buffer.Bytes()); err != nil {
-//		log.Println("unable to write image.")
-//	}
-//}
+type Todo struct {
+	Title string
+	Done  bool
+}
+
+type TodoPageData struct {
+	PageTitle string
+	Todos     []Todo
+}
+
+func (p *Paybill)ShowEmail(db *sqlx.DB) (paybills []*Paybill , err error){
+
+	sql := `exec dbo.USP_API_ArDebtBalacnce`
+	fmt.Println("query = ", sql, p.ArCode, p.DocNo)
+	err = db.Select(&paybills,sql)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, pp := range paybills{
+		sqlsub := `select InvoiceNo,InvoiceDate,InvBalance,InvBalance,PayBalance,DueDate,LineNumber+1 as LineNumber,(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName from	dbo.bcpaybillsub a inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate where	a.arcode = ? and a.docno = ?`
+		fmt.Println("query sub= ", sqlsub, pp.ArCode, pp.DocNo)
+		err = db.Select(&pp.Subs, sqlsub, pp.ArCode, pp.DocNo)
+		if err != nil {
+			return nil, err
+		}
+		fmt.Println(pp.Subs[0].InvoiceNo )
+
+
+		sqlbal := `exec dbo.USP_CD_ConfirmSaleOrderPayBill ?`
+		fmt.Println("query balance= ", sqlbal, pp.ArCode)
+		err = db.Select(&pp.Balance, sqlbal, pp.ArCode)
+		if err != nil {
+			return  nil, err
+		}
+		fmt.Println(pp.Balance[0].MonthBalance )
+	}
+
+	//tmpl := template.Must(template.ParseFiles("templates/test.html"))
+	//http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	//	tmpl.Execute(w, paybills)
+	//})
+	//
+	//http.ListenAndServe(":99", nil)
+	return paybills, err
+}
