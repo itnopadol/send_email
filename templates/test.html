@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" type="text/css" href="../templates/CSS.css">
+
 <head>
 
-    <style type="text/css">
+    <!---style type="text/css" media="screen">
+        <!-- @import url("/css/index.css");
+        -->
+    </style>
 
+    <title>Pay bill Nopadol</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript"></script>
+    <style type="text/css">
         .bodyBody {
             margin: 10px;
             font-size: 1.50em;
         }
+
         .divHeader-L {
             text-align: right;
             /*border: 1px solid;*/
-            height: 180px;
             width: 650px;
             float: left;
         }
+
         .divHeader-R {
             text-align: right;
             /*border: 1px solid;*/
-            height: 180px;
+            height: 150px;
             width: 350px;
             float: left;
         }
-        .divHeader-C {
-            text-align: left;
+
+        .divHeader-Picture {
+            text-align: center;
             /*border: 1px solid;*/
-            height: 50px;
-            width: 800px;
+            width: 90%;
             float: left;
         }
+
         .divHeader-L1 {
             text-align: right;
             /*border: 1px solid;*/
-            height: 130px;
-            width: 650px;
+            height: 160px;
+            width: 80%;
             float: left;
         }
+
         .divHeader-L2 {
             text-align: right;
             /*border: 1px solid;*/
@@ -43,42 +55,110 @@
             width: 800px;
             float: left;
         }
+
+        .divHeader-Address {
+            text-align: left;
+            float: left;
+            height: 160px;
+            width: 90%;
+            font-size: 40px;
+        }
+
         .divReturnAddress {
             text-align: left;
             float: left;
-            width: 80%;
+            width: 90%;
             font-size: 40px;
         }
+
         .divReturnDocNo {
             text-align: left;
             float: left;
-            width: 80%;
+            width: 90%;
             font-size: 40px;
         }
+
+        .divHeader-C {
+            text-align: left;
+            /*border: 1px solid;*/
+            width: 90%;
+            float: left;
+        }
+
+        .divBody-C1 {
+            text-align: left;
+            /*border: 1px solid;*/
+            height: 65px;
+            width: 90%;
+            float: left;
+        }
+
+        .divBody-C2 {
+            text-align: left;
+            /*border: 1px solid;*/
+            width: 90%;
+            float: left;
+        }
+
+        .divBody-C3 {
+            text-align: left;
+            /*border: 1px solid;*/
+            width: 90%;
+            float: left;
+        }
+
+        .divBody-C4 {
+            text-align: left;
+            /*border: 1px solid;*/
+            width: 90%;
+            float: left;
+        }
+
+        .divBody-C5 {
+            text-align: left;
+            /*border: 1px solid;*/
+            width: 90%;
+            float: left;
+        }
+
         .divSubject {
             clear: both;
             font-weight: bold;
             padding-top: 80px;
         }
+
         .divAdios {
             float: right;
             padding-top: 50px;
         }
+
         h1 {
-            color: blue;
+            color: black;
             font-family: "TH Sarabun New";
             font-size: 24px;
         }
-        p  {
-            color: blue;
+
+        h2 {
+            color: red;
             font-family: "TH Sarabun New";
-            font-size: 22px;
+            font-size: 24px;
         }
-        p1  {
+
+        p {
+            color: black;
+            font-family: "TH Sarabun New";
+            font-size: 20px;
+        }
+
+        p1 {
             color: black;
             font-family: "TH Sarabun New";
             font-style: normal;
-            font-size: 16px;
+            font-size: 22px;
+        }
+
+        .currency:after {
+            content: '.00';
         }
     </style>
 
@@ -91,78 +171,208 @@
 <span>Center Text</span>
 <span class="pull-right">Right text</span>
 </div>-->
+
 <body id="Textbody" class="bodyBody">
-<!----Div หัวส่วนที่0---->
-<div class="divHeader-L">
-    <div class="divReturnAddress">
-        <h1> บริษัท นพดลพานิช จำกัด</h1>
-        <p> สำนักงานใหญ่ : 392 ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง <br/>
-        ต.ฟ้าฮ่าม อ.เมือง จ.เชียงใหม่ 50000 <br/>
-        สาขา 1 : 183 หมู่ที่ 2 ต.ตันเปา อ.สันกำแพง จ.เชียงใหม่ 50130 </p>
+    <!----Div หัวส่วนที่0---->
+    <div class="divHeader-L">
+        <div class="divHeader-Address">
+            <h1> บริษัท นพดลพานิช จำกัด</h1>
+            <p> สำนักงานใหญ่ : 392 ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง
+                <br/> ต.ฟ้าฮ่าม อ.เมือง จ.เชียงใหม่ 50000
+                <br/> สาขา 1 : 183 หมู่ที่ 2 ต.ตันเปา อ.สันกำแพง จ.เชียงใหม่ 50130 </p>
+        </div>
     </div>
-</div>
-<div class="divHeader-R">
-    <div class="divReturnDocNo">
-        <p>ใบแจ้งหนี้ / Credit Statement<br/>
-            เลขที่ใบแจ้งหนี้ {{range .}} {{.DocNo}} {{end}}<br/>
-            เลขที่ประตัวผู้เสียภาษี {{range .}} {{.TaxNo}} {{end}}<br/>
-            วันที่สรุป  {{range .}} {{.DocDate}} {{end}} <br/>
-            วันที่ครบกำหนด {{range .}} {{.DueDate}} {{end}} <br/>
-        </p><br/>
+    <div class="divHeader-R">
+        <div class="divReturnDocNo">
+            <p>ใบแจ้งหนี้ / Credit Statement
+                <br/> เลขที่ใบแจ้งหนี้ {{range .}} {{.DocNo}} {{end}}
+                <br/> เลขที่ประตัวผู้เสียภาษี {{range .}} {{.TaxNo}} {{end}}
+                <br/> วันที่สรุป {{range .}} {{.DocDate}} {{end}}
+                <br/> วันที่ครบกำหนด {{range .}} {{.DueDate}} {{end}}
+                <br/>
+            </p>
+            <br/>
+        </div>
     </div>
-</div>
-<div class="divHeader-L1">
-    <div class="divReturnAddress">
-        <h1>เรื่อง แจ้งยอดบัญชีถึงกำหนดชำระ </h1>
-        <p>เรียน ผู้จัดการ/  {{range .}} {{.ArName}} {{end}} <br/>
-            ที่อยู่ {{range .}} {{.BillAddress}} {{end}} <br/>
-        </p>
+    <div class="divHeader-L1">
+        <div class="divReturnAddress">
+            <h1>เรื่อง แจ้งยอดบัญชีถึงกำหนดชำระ </h1>
+            <p>เรียน ผู้จัดการ/ {{range .}} {{.ArName}} {{end}}
+                <br/> ที่อยู่ {{range .}} {{.BillAddress}} {{end}}
+                <br/>
+            </p>
+            <br/>
+        </div>
+    </div>
+    <div class="divBody-C1">
+        <p>ทางบริษัทฯ ใคร่ขอความกรุณาท่าน โปรดชำระเงินค่าสินค้าและบริการ ตามรายการใบกำกับข้างล่างนี้</p>
         <br/>
     </div>
-</div>
-<div class="divHeader-C">
-    <p>ทางบริษัทฯ ใคร่ขอความกรุณาท่าน โปรดชำระเงินค่าสินค้าและบริการ ตามรายการใบกำกับข้างล่างนี้</p>
-</div>
 
 
-<div><span>
-    <table width="100%" cellspacing="1px" bgcolor="#CCCCCC" align="center" border="0" >
+    <div>
+        <span>
+            <table width="100%" cellspacing="1px" bgcolor="#CCCCCC" align="center" border="0">
 
-	<thead>
-  		<tr>
-            <th width="5%" bgcolor="#1e90ff" font-size="12px"><p1>No</p1></th>
-            <th width="16%" bgcolor="#1e90ff"><P1>ใบกำกับสินค้า</P1></th>
-            <th width="10%" bgcolor="#1e90ff"><P1>วันที่</P1></th>
-            <th width="10%" bgcolor="#1e90ff"><p1>วันที่ครบกำหนด</P1></th>
-            <th width="10%" bgcolor="#1e90ff"><P1>จำนวนเงิน</P1></th>
-            <th width="10%" bgcolor="#1e90ff"><P1>ชำระแล้ว</P1></th>
-            <th width="10%" bgcolor="#1e90ff"><P1>ยอดคงค้าง</P1></th>
-            <th width="40%" bgcolor="#1e90ff"><P1>รายการสินค้า</P1></th>
-		</tr>
+                <thead>
+                    <tr>
+                        <th width="5%" bgcolor="#1e90ff">
+                            <p1>No.</p1>
+                        </th>
+                        <th width="16%" bgcolor="#1e90ff">
+                            <P1>ใบกำกับสินค้า</P1>
+                        </th>
+                        <th width="10%" bgcolor="#1e90ff">
+                            <P1>วันที่</P1>
+                        </th>
+                        <th width="10%" bgcolor="#1e90ff">
+                            <p1>วันที่ครบกำหนด</P1>
+                        </th>
+                        <th width="10%" bgcolor="#1e90ff">
+                            <P1>จำนวนเงิน</P1>
+                        </th>
+                        <th width="10%" bgcolor="#1e90ff">
+                            <P1>ชำระแล้ว</P1>
+                        </th>
+                        <th width="10%" bgcolor="#1e90ff">
+                            <P1>ยอดคงค้าง</P1>
+                        </th>
+                        <th width="40%" bgcolor="#1e90ff">
+                            <P1>รายการสินค้า</P1>
+                        </th>
+                    </tr>
 
-        {{range .}}
-        {{range .Subs}}
+                    {{range .}} {{range .Subs}}
 
-        <tr bgcolor="#FFFFFF">
-            <td align='center'><p>{{.LineNumber}}</p></td><td align='center'><p>{{.InvoiceNo}}</p></td><td align='center'><p>{{.InvoiceDate}}</p></td><td align='center'><p>{{.DueDateSub}}</p></td><td align='right'><p>{{.InvBalance}}</p></td><td></td><td align='right'><p>{{.PayBalance}}</p></td><td><p>{{.ItemName}}</p></td></tr>
-        {{end}}
-        {{end}}
-        <tr bgcolor="#1e90ff">
-        <td colspan="2" align='center'><p1>รวมเป็นเงิน</p1></td><td colspan="4" align='center'></td><p1>{{ range .}} {{.SumOfInvoice}} {{end}}</p1><td></td><td></td></tr>
-    </thead>
-		</table>
+                    <tr bgcolor="#FFFFFF">
+                        <td align='center'>
+                            <p>{{.LineNumber}}</p>
+                        </td>
+                        <td align='center'>
+                            <p>{{.InvoiceNo}}</p>
+                        </td>
+                        <td align='center'>
+                            <p>{{.InvoiceDate}}</p>
+                        </td>
+                        <td align='center'>
+                            <p>{{.DueDateSub}}</p>
+                        </td>
+                        <td align='right'>
+                            <p>{{printf "%.2f" .InvBalance}}</p>
+                        </td>
+                        <td></td>
+                        <td align='right'>
+                            <p>{{printf "%.2f" .PayBalance}}</p>
+                        </td>
+                        <td>
+                            <p>{{.ItemName}}</p>
+                        </td>
+                    </tr>
+                    {{end}} {{end}}
+                    <tr bgcolor="#1e90ff">
+                        <td colspan="2" align='center'>
+                            <p1>
+                                <b>รวมเป็นเงิน</b>
+                            </p1>
+                        </td>
+                        <td colspan="4" align='center'></td>
+                        <td align="right">
+                            <p1>{{ range .}} {{printf "%.2f" .SumOfInvoice}} {{end}}</p1>
+                        </td>
+                        <td></td>
+                    </tr>
+                </thead>
+            </table>
         </span>
-</div>
-<div class="divHeader-C">
-    <p>หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯจะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว </p>
-    <p>กรณีชำระล่าช้าบริษัทฯ ขอคิดดอกเบี้ยในอัตรา 1.25% ต่อเดือนและค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระโดยการโอนเข้าบัญชี บริษัทนพดลพานิชจำกัด ดังนี้</p>
-</div>
+    </div>
+    <div class="divBody-C2">
+        <span>
+            <p>หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯจะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว
+                กรณีชำระล่าช้าบริษัทฯ ขอคิดดอกเบี้ยในอัตรา 1.25% ต่อเดือนและค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน
+                สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระโดยการโอนเข้าบัญชี บริษัทนพดลพานิชจำกัด ดังนี้
+            </p>
+        </span>
+    </div>
+    <div class="divHeader-Picture">
+        <img src="../templates/bank.PNG" style="text-align:right" />
+    </div>
+    <div class="divBody-C3">
+        <span>
+            <p>เมื่อมีการโอนเงินให้กับบริษัทฯ ขอความกรุณาแจ้ง/ส่งรายละเอียดการชำระให้ทาง E-mail: cd@nopadol.com ,Line: 081-8837619
+                ,Fax: 053-244111</p>
+        </span>
+    </div>
+    <div>
+        <span>
+            <table width="100%" cellspacing="1px" bgcolor="#CCCCCC" align="center" border="0">
+                <thead>
+                    <tr>
+                        <th width="5%" bgcolor="#ffa07a">
+                            <p1>ลำดับ</p1>
+                        </th>
+                        <th width="30%" bgcolor="#ffa07a" align="left">
+                            <p1>เดือน/ปี</p1>
+                        </th>
+                        <th width="10%" bgcolor="#ffa07a">
+                            <p1>ยอดค้างชำระ</p1>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .}} {{range .Balance}}
+                    <tr bgcolor="#FFFFFF">
+                        <td align='center'>
+                            <p1>{{.RowNumber}}</p1>
+                        </td>
+                        <td>
+                            <p1>{{.MonthName}}</p1>
+                        </td>
+                        <td align="right">
+                            <p1>{{printf "%.2f" .MonthBalance}}</p1>
+                        </td>
+                        {{end}} {{end}}
+                    </tr>
+                    <tr bgcolor="#ffa07a">
+                        <th colspan="2" align='right'>
+                            <p1>ผลรวมยอดค้างชำระ </p1>
+                        </th>
+                        <td align="right">
+                            <p1>{{range .}}{{printf "%.2f" .ArDebtBalance}} {{end}}</p1>
+                        </td>
+                    </tr>
+            </table>
+        </span>
+    </div>
+    <div class="divBody-C4">
+        <span>
+            <p1>บริษัทฯ ต้องขออภัยมา ณ ที่นี้ด้วย หากท่านชำระยอดคงค้างเรียบร้อยแล้ว</p1>
+        </span>
+        <table id="tablecolor">
+            <th>
+                <p1>ติดต่อแผนกสินเชื่อ</p1>
+            </th>
+            <th align="left">
+                <p1>โทร(053)2403777 ต่อ 500,511,512,โทรสาร (053)244111</p1>
+            </th>
+            <tr>
+                <td></td>
+                <td>
+                    <p1>โทร081-8837619 คุณธนยศ,คุณเบญจวรรณ โทร.081-6710875 คุณณัฏฐ์ชยาภรณ์ โทร.081-6815780 และ คุณวิไลวรรณ</p1>
+                </td>
+            </tr>
+        </table>
+    </div>
 
 
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or   include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or   include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function money_format(int) {
+            return numeral(int).format('0,0.00')
+        }
+    </script>
 </body>
+
 </html>
