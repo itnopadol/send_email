@@ -83,7 +83,7 @@ func (p *Paybill) PaybillEmail(access_token string, ar_code string, doc_no strin
 	subject := "Send PayBill"
 	receiver := email
 	r := NewRequest([]string{receiver}, subject)
-	r.body = "http://localhost:8099/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no
+	r.body = "http://venus:8099/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no
 	body := "To: " + r.to[0] + "\r\nSubject: " + r.subject + "\r\n" + MIME + "\r\n" + r.body
 	SMTP := fmt.Sprintf("%s:%d", "smtp.gmail.com", 587)
 	if err := smtp.SendMail(SMTP, smtp.PlainAuth("", "nopadol_mailauto@nopadol.com", "[vdw,jwfh2012", "smtp.gmail.com"), "satit@nopadol.com", r.to, []byte(body)); err != nil {
