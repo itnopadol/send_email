@@ -274,7 +274,12 @@
                                 <b>รวมเป็นเงิน</b>
                             </p1>
                         </td>
-                        <td colspan="4" align='center'></td>
+                        <td align="left">
+                            <p1>{{ range .}} {{ .AmountText}} {{end}}</p1>
+                        </td>
+                        <td></td>
+                        <td colspan="2" align='center'>
+                        </td>
                         <td align="right">
                             <p1>{{ range .}} {{printf "%.2f" .SumOfInvoice}} {{end}}</p1>
                         </td>

@@ -10,6 +10,8 @@ import (
 	// "os"
 
 	"github.com/jmoiron/sqlx"
+	"strconv"
+	"regexp"
 )
 
 type Paybill struct {
@@ -27,6 +29,7 @@ type Paybill struct {
 	DocDate       string         `json:"doc_date" db:"DocDate"`
 	DueDate       string         `json:"due_date" db:"DueDate"`
 	SumOfInvoice  float64        `json:"sum_of_invoice" db:"SumOfInvoice"`
+	AmountText    string         `json:"amount_text" db:"AmountText"`
 	Subs          []*PaybillSub  `json:"invoice_sub"`
 	Balance       []*BillBalance `json:"balance"`
 }
@@ -191,4 +194,13 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string) (
 	}
 
 	return paybills, err
+}
+
+func (p *Paybill) FormatCommas() string {
+	str := strconv.FormatFloat(p.SumOfInvoice, 'g', 1, 64)
+	re := regexp.MustCompile("(\\d+)(\\d{3})")
+	for i := 0; i < (len(str) - 1) / 3; i++ {
+		str = re.ReplaceAllString(str, "$1,$2")
+	}
+	return str
 }
