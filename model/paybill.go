@@ -148,16 +148,43 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string) (
 	}
 
 	for _, pp := range paybills {
-		sqlsub := `select InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,InvBalance,InvBalance,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,LineNumber+1 as LineNumber,(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName from	dbo.bcpaybillsub a inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0`
+		//sqlsub := `select InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,InvBalance,InvBalance,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,LineNumber+1 as LineNumber,(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName from	dbo.bcpaybillsub a inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0`
+		sqlsub := `select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
+		InvBalance,PayAmount,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+		LineNumber+1 as LineNumber,
+		(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName 
+		from	dbo.bcpaybillsub a 
+				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
+				inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
+		where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0
+		union
+		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
+				-1*InvBalance as InvBalance,PayAmount,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+				LineNumber+1 as LineNumber,
+				(select top 1 itemname from dbo.bccreditnotesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName 
+		from	dbo.bcpaybillsub a 
+				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
+				inner join dbo.bccreditnote b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
+		where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0
+		union
+		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
+				InvBalance,PayAmount,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+				LineNumber+1 as LineNumber,
+				(select top 1 itemname from dbo.bcdebitnotesub1 where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName 
+		from	dbo.bcpaybillsub a 
+				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
+				inner join dbo.bcdebitnote1 b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
+		where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0`
+
 		fmt.Println("query sqlsub= ", sqlsub, pp.ArCode, pp.DocNo)
-		err = db.Select(&pp.Subs, sqlsub, pp.ArCode, pp.DocNo)
+		err = db.Select(&pp.Subs, sqlsub, pp.ArCode, pp.DocNo, pp.ArCode, pp.DocNo, pp.ArCode, pp.DocNo)
 		if err != nil {
 			return nil, err
 		}
 
-		sqlbal := `exec dbo.USP_CD_ConfirmSaleOrderPayBill ?`
+		sqlbal := `exec dbo.USP_CD_ConfirmSaleOrderPayBill_SendMail ?, ?`
 		fmt.Println("query sqlbal= ", sqlbal, pp.ArCode)
-		err = db.Select(&pp.Balance, sqlbal, pp.ArCode)
+		err = db.Select(&pp.Balance, sqlbal, pp.ArCode, pp.DocNo)
 		if err != nil {
 			return nil, err
 		}

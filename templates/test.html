@@ -6,8 +6,7 @@
 
     <!---style type="text/css" media="screen">
         <!-- @import url("/css/index.css");
-        -->
-    </style>
+    </style>-->
 
     <title>Pay bill Nopadol</title>
     <meta charset="utf-8" />
@@ -212,7 +211,7 @@
 
     <div>
         <span>
-            <table width="100%" cellspacing="1px" bgcolor="#CCCCCC" align="center" border="0">
+            <table width="100%" cellspacing="1px" bgcolor="#CCCCCC" align="center" border="1">
 
                 <thead>
                     <tr>
@@ -258,11 +257,11 @@
                             <p>{{.DueDateSub}}</p>
                         </td>
                         <td align='right'>
-                            <p>{{printf "%.2f" .InvBalance}}</p>
+                            <p>{{printf "%.2f" .PayAmount}}</p>
                         </td>
                         <td></td>
                         <td align='right'>
-                            <p>{{printf "%.2f" .PayBalance}}</p>
+                            <p>{{printf "%.2f" .InvBalance}}</p>
                         </td>
                         <td>
                             <p>{{.ItemName}}</p>
@@ -285,26 +284,12 @@
             </table>
         </span>
     </div>
-    <div class="divBody-C2">
-        <span>
-            <p>หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯจะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว
-                กรณีชำระล่าช้าบริษัทฯ ขอคิดดอกเบี้ยในอัตรา 1.25% ต่อเดือนและค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน
-                สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระโดยการโอนเข้าบัญชี บริษัทนพดลพานิชจำกัด ดังนี้
-            </p>
-        </span>
-    </div>
-    <div class="divHeader-Picture">
-        <img src="../templates/bank.PNG" style="text-align:right" />
-    </div>
-    <div class="divBody-C3">
-        <span>
-            <p>เมื่อมีการโอนเงินให้กับบริษัทฯ ขอความกรุณาแจ้ง/ส่งรายละเอียดการชำระให้ทาง E-mail: cd@nopadol.com ,Line: 081-8837619
-                ,Fax: 053-244111</p>
-        </span>
-    </div>
     <div>
         <span>
-            <table width="100%" cellspacing="1px" bgcolor="#CCCCCC" align="center" border="0">
+            <p>และท่านยังมียอดค้างชำระที่ไม่รวมยอดที่แจ้งข้างต้นอีก ดังนี้</p>
+        </span>
+        <span>
+            <table width="50%" cellspacing="1px" bgcolor="#CCCCCC" align="left" border="1">
                 <thead>
                     <tr>
                         <th width="5%" bgcolor="#ffa07a">
@@ -330,7 +315,7 @@
                         <td align="right">
                             <p1>{{printf "%.2f" .MonthBalance}}</p1>
                         </td>
-                        {{end}} {{end}}
+                    {{end}} {{end}}
                     </tr>
                     <tr bgcolor="#ffa07a">
                         <th colspan="2" align='right'>
@@ -343,10 +328,27 @@
             </table>
         </span>
     </div>
-    <div class="divBody-C4">
+    <div class="divBody-C2">
         <span>
-            <p1>บริษัทฯ ต้องขออภัยมา ณ ที่นี้ด้วย หากท่านชำระยอดคงค้างเรียบร้อยแล้ว</p1>
+            <p>หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯจะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว
+                กรณีชำระล่าช้าบริษัทฯ ขอคิดดอกเบี้ยในอัตรา 1.25% ต่อเดือนและค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน
+                สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระโดยการโอนเข้าบัญชี บริษัทนพดลพานิชจำกัด ดังนี้
+            </p>
         </span>
+    </div>
+    <div class="divHeader-Picture">
+        <img src="../templates/bank.PNG" style="text-align:right" />
+    </div>
+    <div class="divBody-C3">
+        <span>
+            <p>เมื่อมีการโอนเงินให้กับบริษัทฯ ขอความกรุณาแจ้ง/ส่งรายละเอียดการชำระให้ทาง E-mail: cd@nopadol.com ,Line: 081-8837619
+                ,Fax: 053-244111
+            <br>บริษัทฯ ต้องขออภัยมา ณ ที่นี้ด้วย หากท่านชำระยอดคงค้างเรียบร้อยแล้ว</p>
+        </span>
+    </div>
+
+    <div class="divBody-C4">
+
         <table id="tablecolor">
             <th>
                 <p1>ติดต่อแผนกสินเชื่อ</p1>
