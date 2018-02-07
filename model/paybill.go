@@ -10,8 +10,8 @@ import (
 	// "os"
 
 	"github.com/jmoiron/sqlx"
-	"strconv"
-	"regexp"
+	//"strconv"
+	//"regexp"
 )
 
 type Paybill struct {
@@ -19,7 +19,7 @@ type Paybill struct {
 	ArName        string         `json:"ar_name" db:"ArName"`
 	TaxNo         string         `json:"tax_no" db:"TaxNo"`
 	BillAddress   string         `json:"bill_address" db:"BillAddress"`
-	ArDebtBalance float64        `json:"ar_debt_balance" db:"ArDebtBalance"`
+	ArDebtBalance string        `json:"ar_debt_balance" db:"ArDebtBalance"`
 	DebtLimit1    float64        `json:"debt_limit_1" db:"DebtLimit1"`
 	DebtLimitBal  float64        `json:"debt_limit_bal" db:"DebtLimitBal"`
 	DebtAmount    float64        `json:"debt_amount" db:"DebtAmount"`
@@ -28,7 +28,7 @@ type Paybill struct {
 	DocNo         string         `json:"doc_no" db:"DocNo"`
 	DocDate       string         `json:"doc_date" db:"DocDate"`
 	DueDate       string         `json:"due_date" db:"DueDate"`
-	SumOfInvoice  float64        `json:"sum_of_invoice" db:"SumOfInvoice"`
+	SumOfInvoice  string       `json:"sum_of_invoice" db:"SumOfInvoice"`
 	AmountText    string         `json:"amount_text" db:"AmountText"`
 	Subs          []*PaybillSub  `json:"invoice_sub"`
 	Balance       []*BillBalance `json:"balance"`
@@ -39,9 +39,9 @@ type PaybillSub struct {
 	InvoiceNo   string  `json:"invoice_no" db:"InvoiceNo"`
 	InvoiceDate string  `json:"invoice_date" db:"InvoiceDate"`
 	DueDateSub  string  `json:"due_date_sub" db:"DueDate"`
-	InvBalance  float64 `json:"inv_balance" db:"InvBalance"`
-	PayAmount   float64 `json:"pay_amount" db:"PayAmount"`
-	PayBalance  float64 `json:"pay_balance" db:"PayBalance"`
+	InvBalance  string `json:"inv_balance" db:"InvBalance"`
+	PayAmount   string `json:"pay_amount" db:"PayAmount"`
+	PayBalance  string `json:"pay_balance" db:"PayBalance"`
 	ItemName    string  `json:"item_name" db:"ItemName"`
 	LineNumber  int     `json:"line_number" db:"LineNumber"`
 }
@@ -49,7 +49,7 @@ type PaybillSub struct {
 type BillBalance struct {
 	RowNumber    int64   `json:"row_number" db:"RowNumber"`
 	MonthName    string  `json:"month_name" db:"MonthGroup"`
-	MonthBalance float64 `json:"month_balance" db:"vSumBalance"`
+	MonthBalance string `json:"month_balance" db:"vSumBalance"`
 	ArCode       string  `json:"ar_code" db:"ArCode"`
 	ArName       string  `json:"ar_name" db:"ArName"`
 	BillAddress  string  `json:"bill_address" db:"BillAddress"`
@@ -153,7 +153,8 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string) (
 	for _, pp := range paybills {
 		//sqlsub := `select InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,InvBalance,InvBalance,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,LineNumber+1 as LineNumber,(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName from	dbo.bcpaybillsub a inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0`
 		sqlsub := `select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
-		InvBalance,PayAmount,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+		CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
+		rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
 		LineNumber+1 as LineNumber,
 		(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName 
 		from	dbo.bcpaybillsub a 
@@ -162,7 +163,8 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string) (
 		where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0
 		union
 		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
-				-1*InvBalance as InvBalance,PayAmount,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+				CONVERT(varchar, CAST(-1*InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
+				rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
 				LineNumber+1 as LineNumber,
 				(select top 1 itemname from dbo.bccreditnotesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName 
 		from	dbo.bcpaybillsub a 
@@ -171,7 +173,8 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string) (
 		where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0
 		union
 		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
-				InvBalance,PayAmount,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+				CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
+				rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
 				LineNumber+1 as LineNumber,
 				(select top 1 itemname from dbo.bcdebitnotesub1 where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName 
 		from	dbo.bcpaybillsub a 
@@ -196,11 +199,11 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string) (
 	return paybills, err
 }
 
-func (p *Paybill) FormatCommas() string {
-	str := strconv.FormatFloat(p.SumOfInvoice, 'g', 1, 64)
-	re := regexp.MustCompile("(\\d+)(\\d{3})")
-	for i := 0; i < (len(str) - 1) / 3; i++ {
-		str = re.ReplaceAllString(str, "$1,$2")
-	}
-	return str
-}
+//func (p *Paybill) FormatCommas() string {
+//	str := strconv.FormatFloat(p.SumOfInvoice, 'g', 1, 64)
+//	re := regexp.MustCompile("(\\d+)(\\d{3})")
+//	for i := 0; i < (len(str) - 1) / 3; i++ {
+//		str = re.ReplaceAllString(str, "$1,$2")
+//	}
+//	return str
+//}

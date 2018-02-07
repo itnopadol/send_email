@@ -257,11 +257,11 @@
                             <p>{{.DueDateSub}}</p>
                         </td>
                         <td align='right'>
-                            <p>{{printf "%.2f" .PayAmount}}</p>
+                            <p>{{.PayAmount}}</p>
                         </td>
                         <td></td>
                         <td align='right'>
-                            <p>{{printf "%.2f" .InvBalance}}</p>
+                            <p>{{.InvBalance}}</p>
                         </td>
                         <td>
                             <p>{{.ItemName}}</p>
@@ -281,7 +281,7 @@
                         <td colspan="2" align='center'>
                         </td>
                         <td align="right">
-                            <p1>{{ range .}} {{printf "%.2f" .SumOfInvoice}} {{end}}</p1>
+                            <p1>{{ range .}} {{.SumOfInvoice}} {{end}}</p1>
                         </td>
                         <td></td>
                     </tr>
@@ -318,7 +318,7 @@
                             <p1>{{.MonthName}}</p1>
                         </td>
                         <td align="right">
-                            <p1>{{printf "%.2f" .MonthBalance}}</p1>
+                            <p1>{{.MonthBalance}}</p1>
                         </td>
                     {{end}} {{end}}
                     </tr>
@@ -327,7 +327,7 @@
                             <p1>ผลรวมยอดค้างชำระ </p1>
                         </th>
                         <td align="right">
-                            <p1>{{range .}}{{printf "%.2f" .ArDebtBalance}} {{end}}</p1>
+                            <p1>{{range .}}{{.ArDebtBalance}} {{end}}</p1>
                         </td>
                     </tr>
             </table>
