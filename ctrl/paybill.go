@@ -44,5 +44,5 @@ func ShowPaybillDocNo(c *gin.Context) {
 		fmt.Println(err.Error())
 	}
 
-	c.HTML(http.StatusOK, "test.html", p)
+	c.HTML(http.StatusOK, "invoice.html", p)
 }
