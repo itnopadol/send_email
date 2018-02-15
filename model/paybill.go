@@ -88,12 +88,12 @@ func NewRequest(to []string, subject string) *Request {
 	}
 }
 
-func (r *Request) Send(templateName string, items interface{}, ar_code string, doc_no string) {
+func (r *Request) Send(templateName string, items interface{}, ar_code string, doc_no string, access_token string) {
 	err := r.parseTemplate(templateName, items)
 	if err != nil {
 		log.Fatal(err)
 	}
-	if ok := r.sendEmail(ar_code, doc_no); ok {
+	if ok := r.sendEmail(ar_code, doc_no, access_token); ok {
 		log.Printf("Email has been sent to %s\n", r.to)
 	} else {
 		log.Printf("Failed to send the email to %s\n", r.to)
