@@ -35,11 +35,12 @@ func SendEmail(c *gin.Context) {
 func ShowPaybillDocNo(c *gin.Context) {
 	c.Keys = headerKeys
 
+	access_token := c.Request.URL.Query().Get("access_token")
 	ar_code := c.Request.URL.Query().Get("ar_code")
 	doc_no := c.Request.URL.Query().Get("doc_no")
 
 	paybill := new(model.Paybill)
-	p, err := paybill.ShowPaybillDocNo(dbc, ar_code, doc_no)
+	p, err := paybill.ShowPaybillDocNo(dbc, ar_code, doc_no, access_token)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
