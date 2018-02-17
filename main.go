@@ -18,7 +18,7 @@ func main() {
 
 	r.Static("/templates", "./templates")
 	r.LoadHTMLGlob("templates/*")
-	r.GET("/email", ctrl.SendEmail)
+	r.GET("/email", ctrl.PaybillEmail)
 	r.GET("/email/html", ctrl.ShowPaybillDocNo)
 
 	r.Run(":8099")

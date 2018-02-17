@@ -8,15 +8,16 @@ import (
 	"github.com/itnopadol/send_email/model"
 )
 
-func SendEmail(c *gin.Context) {
+func PaybillEmail(c *gin.Context) {
 	c.Keys = headerKeys
 	access_token := c.Request.URL.Query().Get("access_token")
 	ar_code := c.Request.URL.Query().Get("ar_code")
+	ar_name := c.Request.URL.Query().Get("ar_name")
 	doc_no := c.Request.URL.Query().Get("doc_no")
 	email := c.Request.URL.Query().Get("email")
 
 	paybill := new(model.Paybill)
-	err := paybill.PaybillEmail(access_token, ar_code, doc_no, email)
+	err := paybill.PaybillEmail(access_token, ar_code, ar_name, doc_no, email)
 	fmt.Println("Ctrl Send Email ")
 
 	rs := Response{}

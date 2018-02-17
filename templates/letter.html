@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="../templates/CSS.css">
+
+<head>
+    <title>Pay bill Nopadol</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <table border="0" width="50%" height="10%"   >
+            <tr>
+                <td>
+                    <table width="100%" height="80%" style="border-collapse: collapse;
+        border-radius: 10px;
+        border-style: hidden;
+        box-shadow: 0 0 0 1px #666; border: 1;">
+                        <tr><td>
+                            <table width="100%" height="100%" border="0" style="font-size: medium">
+                                <tr>
+                                    <td width="10%" align="left"><span style="font-size:10.5px;">บริษัท นพดลพานิช จำกัด</span></td>
+                                </tr>
+                                <tr>
+                                    <td height="10%"><span style="font-size:10.5px;">สำนักงานใหญ่ 392 ถนนซุปเปอร์ไฮเวย์ เชียงใหม่ ลำปางต.ฟ้าฮ่าม อ.เมือง
+		                            จ. เชียงใหม่ 50000 <br>สาขา 1:183 หมู่ที่ 2 ต.ต้นเปา อ.สันกำแพง จ.เชียงใหม่ 50130</span></td>
+                                </tr>
+                            </table>
+                        </td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table border="0" width="33.3333333%" height="10%">
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+        <table border="0" width="33.3333333%" height="10%">
+            <tr>
+                <td>
+                    <table align="right">
+                        <tr>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table border="0">
+                                    <tr>
+                                        <td><span style="font-size:10.5px;"></span></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table border="0" width="40.3333333%" height="10%">
+            <tr>
+                <td>
+                    <table border="1" width="100%" height="80%" style="border-collapse: collapse;
+                               border-radius: 10px;
+                               border-style: hidden;
+                               box-shadow: 0 0 0 1px #666; border: 1;" >
+                        <tr>
+                            <td>
+                                <table border="0">
+                                    <tr>
+                                        <td width="20%" height="10%" align="center"><span style="font-size:10.5px;">เรื่อง</span></td>
+                                        <td width="80%" height="10%"><span style="font-size:10.5px;">แจ้งยอดบัญชีค้างชำระ/ใบแจ้งหนี้/ใบวางบิล</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center"><span style="font-size:10.5px;">เรียน </span></td>
+                                        <td>
+                                            <table border="0" width="100%" height="70%">
+                                                <tr>
+                                                    <td><span style="font-size:10.5px;">ผู้จัดการ/ {{ .ArNameMail}}
+                                                        <br/>
+                                           </span></td>
+
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <table border="0" width="100%" height="5%">
+            <tr>
+                <td>
+                    <table border="0" width="95%">
+                    <tr>
+                        <td width="20%" align="center"><span style="font-size:10.5px;">ลิงค์เอกสาร</span></td>
+                        <td width="80%"><span style="font-size:10.5px;"> {{ .UrlLink}}
+                        </span></td>
+                    </tr>
+                </table>
+                <table border="0" width="95%">
+                    <tr>
+                        <td width="10%"></td>
+                        <td width="90%"><span style="font-size:10.5px;">กรุณาตรวจสอบ ยอดบัญชีค้างชำระของท่าน หากไม่ถูกต้องประการใด กรุณาทักท้วงไปยังแผนกสินเชื่อ โทร. 053-240377 ต่อ 510, 512</span></td>
+                    </tr>
+                </table>
+                <table border="0" width="95%">
+                    <tr>
+                        <td width="5%"></td>
+                        <td width="95%"><span style="font-size:10.5px;">เมื่อมีการโอนเงินให้กับบริษัทฯ ขอความกรุณาแจ้ง/ส่งรายละเอียดการชำระให้ทาง
+					                E-mail: cd@nopadol.com, Line:081-8837619 , Fax: 053-244111</span></td>
+                    </tr>
+                </table>
+                <table border="0" width="95%">
+                    <tr>
+                        <td width="5%"></td>
+                        <td width="95%"><span style="font-size:10.5px;">บริษัท ฯ ต้องขออภัย ณ ที่นี่ด้วย หากท่านชำระยอดคงค้างเรียบร้อยแล้ว</span></td>
+                    </tr>
+                </table>
+                <table border="0" width="95%">
+                    <tr>
+                        <td width="5%"></td>
+                        <td width="95%"><span style="font-size:10.5px;">แผนกสินเชื่อ โทร (053) 240377 ต่อ 500,511,512, โทรสาร (053) 244111</span></td>
+                    </tr>
+                </table>
+                <table border="0" width="95%">
+                    <tr>
+                        <td width="5%"></td>
+                        <td width="95%"><span style="font-size:10.5px;">โทร 081-8837619 คุณธนยศ,คุณเบญจวรรณ โทร. 081-6710875
+						 คุณณัฎฐ์ชยาภรณ์ โทร.081-6815780 คุณวิไลวรรณ</span></td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+</body>
+</html>
