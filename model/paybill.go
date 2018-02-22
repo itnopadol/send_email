@@ -73,8 +73,8 @@ const (
 	MIME = "MIME-version: 1.0;\nContent-Type: text/html; image/png; charset=\"UTF-8\";\n\n"
 )
 
-func (p *Paybill) PaybillEmail(access_token string, ar_code string, ar_name string, doc_no string, email string) error {
-	subject := "Send PayBill"
+func (p *Paybill) SentEmailAuto(access_token string, ar_code string, ar_name string, doc_no string, email string) error {
+	subject := "แจ้งใบวางบิล"
 	receiver := email
 	r := NewRequest([]string{receiver}, subject)
 
@@ -149,7 +149,7 @@ func (r *Request) sendEmail(ar_code string, doc_no string, access_token string) 
 	return true
 }
 
-func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string, access_token string) (paybills []*Paybill, err error) {
+func (p *Paybill) ShowDocNo(db *sqlx.DB, ar_code string, doc_no string, access_token string) (paybills []*Paybill, err error) {
 	var check_token int
 
 	sql_check_token := `select count(*) as check_token from NPMaster.dbo.TB_CD_PaybillLogs where arcode = ? and docno = ? and accesstoken = ?`
@@ -179,7 +179,7 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string, a
 		from	dbo.bcpaybillsub a 
 				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
 				inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
-		where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0
+		where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
 		union
 		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
 				CONVERT(varchar, CAST(-1*InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
@@ -189,7 +189,7 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string, a
 		from	dbo.bcpaybillsub a 
 				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
 				inner join dbo.bccreditnote b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
-		where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0
+		where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
 		union
 		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
 				CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
@@ -199,7 +199,7 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string, a
 		from	dbo.bcpaybillsub a 
 				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
 				inner join dbo.bcdebitnote1 b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
-		where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0
+		where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
 		union
 		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
 				CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
@@ -209,7 +209,7 @@ func (p *Paybill) ShowPaybillDocNo(db *sqlx.DB, ar_code string, doc_no string, a
 		from	dbo.bcpaybillsub a 
 				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
 				inner join dbo.bcarotherdebt b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
-		where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0
+		where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
 		) as rs order by linenumber`
 
 			fmt.Println("query sqlsub= ", sqlsub, pp.ArCode, pp.DocNo)

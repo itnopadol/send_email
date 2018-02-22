@@ -17,7 +17,7 @@ func PaybillEmail(c *gin.Context) {
 	email := c.Request.URL.Query().Get("email")
 
 	paybill := new(model.Paybill)
-	err := paybill.PaybillEmail(access_token, ar_code, ar_name, doc_no, email)
+	err := paybill.SentEmailAuto(access_token, ar_code, ar_name, doc_no, email)
 	fmt.Println("Ctrl Send Email ")
 
 	rs := Response{}
@@ -41,7 +41,7 @@ func ShowPaybillDocNo(c *gin.Context) {
 	doc_no := c.Request.URL.Query().Get("doc_no")
 
 	paybill := new(model.Paybill)
-	p, err := paybill.ShowPaybillDocNo(dbc, ar_code, doc_no, access_token)
+	p, err := paybill.ShowDocNo(dbc, ar_code, doc_no, access_token)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
