@@ -5,7 +5,7 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
-	"log"
+	//"log"
 	"net/smtp"
 	// "os"
 
@@ -110,17 +110,17 @@ func NewRequest(to []string, subject string) *Request {
 	}
 }
 
-func (r *Request) Send(templateName string, items interface{}, ar_code string, doc_no string, access_token string) {
-	err := r.parseTemplate(templateName, items)
-	if err != nil {
-		log.Fatal(err)
-	}
-	if ok := r.sendEmail(ar_code, doc_no, access_token); ok {
-		log.Printf("Email has been sent to %s\n", r.to)
-	} else {
-		log.Printf("Failed to send the email to %s\n", r.to)
-	}
-}
+//func (r *Request) Send(templateName string, items interface{}, ar_code string, doc_no string, access_token string) {
+//	err := r.parseTemplate(templateName, items)
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//	if ok := r.sendEmail(ar_code, doc_no, access_token); ok {
+//		log.Printf("Email has been sent to %s\n", r.to)
+//	} else {
+//		log.Printf("Failed to send the email to %s\n", r.to)
+//	}
+//}
 
 var (
 	templates *template.Template
@@ -139,15 +139,15 @@ func (r *Request) parseTemplate(fileName string, data interface{}) error {
 	return nil
 }
 
-func (r *Request) sendEmail(ar_code string, doc_no string, access_token string) bool {
-	r.body = "http://localhost:8099/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
-	body := "To: " + r.to[0] + "\r\nSubject: " + r.subject + "\r\n" + MIME + "\r\n" + r.body
-	SMTP := fmt.Sprintf("%s:%d", "smtp.gmail.com", 587)
-	if err := smtp.SendMail(SMTP, smtp.PlainAuth("", "nopadol_mailauto@nopadol.com", "[vdw,jwfh2012", "smtp.gmail.com"), "satit@nopadol.com", r.to, []byte(body)); err != nil {
-		return false
-	}
-	return true
-}
+//func (r *Request) sendEmail(ar_code string, doc_no string, access_token string) bool {
+//	r.body = "http://localhost:8099/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
+//	body := "To: " + r.to[0] + "\r\nSubject: " + r.subject + "\r\n" + MIME + "\r\n" + r.body
+//	SMTP := fmt.Sprintf("%s:%d", "smtp.gmail.com", 587)
+//	if err := smtp.SendMail(SMTP, smtp.PlainAuth("", "nopadol_mailauto@nopadol.com", "[vdw,jwfh2012", "smtp.gmail.com"), "satit@nopadol.com", r.to, []byte(body)); err != nil {
+//		return false
+//	}
+//	return true
+//}
 
 func (p *Paybill) ShowDocNo(db *sqlx.DB, ar_code string, doc_no string, access_token string) (paybills []*Paybill, err error) {
 	var check_token int
