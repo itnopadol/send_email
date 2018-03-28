@@ -80,8 +80,8 @@ func (p *Paybill) SentEmailAuto(access_token string, ar_code string, ar_name str
 
 	data := &MailData{}
 	data.ArNameMail = ar_name
-	data.UrlLink = "http://app.nopadol.com:20000/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
-
+	//data.UrlLink = "http://app.nopadol.com:20000/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
+	data.UrlLink = "http://credit.nopadol.com:20000/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
 	t, err := template.ParseFiles("./templates/letter.html")
 	if err != nil {
 		return err
