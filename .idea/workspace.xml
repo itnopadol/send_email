@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a9df651-3e9e-4445-a1a3-cac0967276fe" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/B.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/static/img/bank1.jpg" afterPath="$PROJECT_DIR$/static/images/bank1.jpg" />
       <change beforePath="$PROJECT_DIR$/templates/invoice.html" afterPath="$PROJECT_DIR$/templates/invoice.html" />
-      <change beforePath="$PROJECT_DIR$/templates/letter.html" afterPath="$PROJECT_DIR$/templates/letter.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +19,8 @@
       <file leaf-file-name="paybill.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/paybill.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-353">
-              <caret line="84" column="58" lean-forward="false" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="58" />
+            <state relative-caret-position="2363">
+              <caret line="151" column="18" lean-forward="false" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
               <folding>
                 <marker date="1522144732579" expanded="true" signature="10968:11098" ph="update NPMaster.dbo.TB_CD_PaybillLogs... " />
               </folding>
@@ -30,12 +31,9 @@
       <file leaf-file-name="letter.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/letter.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-584">
-              <caret line="15" column="54" lean-forward="true" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-              <folding>
-                <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="15" column="54" lean-forward="false" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,8 +41,8 @@
       <file leaf-file-name="paybill.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ctrl/paybill.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="20" />
+            <state relative-caret-position="629">
+              <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
               <folding>
                 <element signature="e#14#113#0" expanded="true" />
               </folding>
@@ -65,8 +63,8 @@
       <file leaf-file-name="init.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ctrl/init.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+            <state relative-caret-position="374">
+              <caret line="26" column="1" lean-forward="false" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
               <folding>
                 <element signature="e#14#96#0" expanded="true" />
               </folding>
@@ -77,13 +75,45 @@
       <file leaf-file-name="invoice.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/invoice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="17" column="66" lean-forward="true" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+            <state relative-caret-position="221">
+              <caret line="276" column="25" lean-forward="true" selection-start-line="276" selection-start-column="25" selection-end-line="276" selection-end-column="25" />
               <folding>
-                <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#14315#14321#0#HTML" expanded="true" />
+                <element signature="e#14321#14327#0#HTML" expanded="true" />
+                <element signature="e#14327#14333#0#HTML" expanded="true" />
+                <element signature="e#14333#14339#0#HTML" expanded="true" />
+                <element signature="e#14339#14345#0#HTML" expanded="true" />
+                <element signature="e#14345#14351#0#HTML" expanded="true" />
+                <element signature="e#14351#14357#0#HTML" expanded="true" />
+                <element signature="e#14357#14363#0#HTML" expanded="true" />
+                <element signature="e#14363#14369#0#HTML" expanded="true" />
+                <element signature="e#14369#14375#0#HTML" expanded="true" />
+                <element signature="e#14375#14381#0#HTML" expanded="true" />
+                <element signature="e#14381#14387#0#HTML" expanded="true" />
+                <element signature="e#14387#14393#0#HTML" expanded="true" />
+                <element signature="e#14393#14399#0#HTML" expanded="true" />
+                <element signature="e#14399#14405#0#HTML" expanded="true" />
+                <element signature="e#14405#14411#0#HTML" expanded="true" />
+                <element signature="e#14411#14417#0#HTML" expanded="true" />
+                <element signature="e#14417#14423#0#HTML" expanded="true" />
+                <element signature="e#14423#14429#0#HTML" expanded="true" />
+                <element signature="e#14429#14435#0#HTML" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="B.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/images/B.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BankQR.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/images/BankQR.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -100,8 +130,8 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="46" />
               <folding>
                 <element signature="e#14#142#0" expanded="true" />
               </folding>
@@ -206,6 +236,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,13 +257,12 @@
             <path>
               <item name="send_email" type="b2602c69:ProjectViewProjectNode" />
               <item name="send_email" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,7 +272,12 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GOCode\src\github.com\itnopadol\send_email\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\GOCode\src\github.com\itnopadol\send_email\static\images" />
+      <recent name="C:\GOCode\src\github.com\itnopadol\send_email\static\img" />
       <recent name="C:\GOCode\src\github.com\itnopadol\send_email\templates" />
     </key>
   </component>
@@ -280,11 +315,11 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24298376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24298376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -312,30 +347,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/paybill.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <marker date="1522144732579" expanded="true" signature="10968:11098" ph="update NPMaster.dbo.TB_CD_PaybillLogs... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/paybill.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/resp.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -529,11 +540,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/bank1.jpg" />
-    <entry file="file://$PROJECT_DIR$/templates/BankQR.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/BankQR2.png" />
     <entry file="file://$PROJECT_DIR$/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -558,20 +564,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/paybill.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="20" />
-          <folding>
-            <element signature="e#14#113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/init.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+        <state relative-caret-position="374">
+          <caret line="26" column="1" lean-forward="false" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
           <folding>
             <element signature="e#14#96#0" expanded="true" />
           </folding>
@@ -580,18 +576,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="46" />
           <folding>
             <element signature="e#14#142#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/paybill.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+          <folding>
+            <element signature="e#14#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model/paybill.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-353">
-          <caret line="84" column="58" lean-forward="false" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="58" />
+        <state relative-caret-position="2363">
+          <caret line="151" column="18" lean-forward="false" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
           <folding>
             <marker date="1522144732579" expanded="true" signature="10968:11098" ph="update NPMaster.dbo.TB_CD_PaybillLogs... " />
           </folding>
@@ -600,22 +606,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/letter.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-584">
-          <caret line="15" column="54" lean-forward="true" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="15" column="54" lean-forward="false" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bank01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/BankNewQR.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/BankQR.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/B.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/invoice.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="17" column="66" lean-forward="true" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+        <state relative-caret-position="221">
+          <caret line="276" column="25" lean-forward="true" selection-start-line="276" selection-start-column="25" selection-end-line="276" selection-end-column="25" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#14315#14321#0#HTML" expanded="true" />
+            <element signature="e#14321#14327#0#HTML" expanded="true" />
+            <element signature="e#14327#14333#0#HTML" expanded="true" />
+            <element signature="e#14333#14339#0#HTML" expanded="true" />
+            <element signature="e#14339#14345#0#HTML" expanded="true" />
+            <element signature="e#14345#14351#0#HTML" expanded="true" />
+            <element signature="e#14351#14357#0#HTML" expanded="true" />
+            <element signature="e#14357#14363#0#HTML" expanded="true" />
+            <element signature="e#14363#14369#0#HTML" expanded="true" />
+            <element signature="e#14369#14375#0#HTML" expanded="true" />
+            <element signature="e#14375#14381#0#HTML" expanded="true" />
+            <element signature="e#14381#14387#0#HTML" expanded="true" />
+            <element signature="e#14387#14393#0#HTML" expanded="true" />
+            <element signature="e#14393#14399#0#HTML" expanded="true" />
+            <element signature="e#14399#14405#0#HTML" expanded="true" />
+            <element signature="e#14405#14411#0#HTML" expanded="true" />
+            <element signature="e#14411#14417#0#HTML" expanded="true" />
+            <element signature="e#14417#14423#0#HTML" expanded="true" />
+            <element signature="e#14423#14429#0#HTML" expanded="true" />
+            <element signature="e#14429#14435#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
