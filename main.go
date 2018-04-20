@@ -17,7 +17,7 @@ func main() {
 	r.Use(cors.Default())
 
 	r.Static("/static", "./static")
-	r.LoadHTMLGlob("static/*")
+	r.LoadHTMLGlob("templates/*")
 	r.GET("/email", ctrl.PaybillEmail)
 	r.GET("/email/html", ctrl.ShowPaybillDocNo)
 
