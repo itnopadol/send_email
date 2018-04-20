@@ -16,8 +16,8 @@ func main() {
 	r := gin.New()
 	r.Use(cors.Default())
 
-	r.Static("/templates", "./templates")
-	r.LoadHTMLGlob("templates/*")
+	r.Static("/static", "./static")
+	r.LoadHTMLGlob("static/*")
 	r.GET("/email", ctrl.PaybillEmail)
 	r.GET("/email/html", ctrl.ShowPaybillDocNo)
 
