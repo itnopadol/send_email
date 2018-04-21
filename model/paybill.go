@@ -19,7 +19,7 @@ type Paybill struct {
 	ArName        string         `json:"ar_name" db:"ArName"`
 	TaxNo         string         `json:"tax_no" db:"TaxNo"`
 	BillAddress   string         `json:"bill_address" db:"BillAddress"`
-	ArDebtBalance string        `json:"ar_debt_balance" db:"ArDebtBalance"`
+	ArDebtBalance string         `json:"ar_debt_balance" db:"ArDebtBalance"`
 	DebtLimit1    float64        `json:"debt_limit_1" db:"DebtLimit1"`
 	DebtLimitBal  float64        `json:"debt_limit_bal" db:"DebtLimitBal"`
 	DebtAmount    float64        `json:"debt_amount" db:"DebtAmount"`
@@ -28,33 +28,34 @@ type Paybill struct {
 	DocNo         string         `json:"doc_no" db:"DocNo"`
 	DocDate       string         `json:"doc_date" db:"DocDate"`
 	DueDate       string         `json:"due_date" db:"DueDate"`
-	SumOfInvoice  string       `json:"sum_of_invoice" db:"SumOfInvoice"`
+	SumOfInvoice  string         `json:"sum_of_invoice" db:"SumOfInvoice"`
 	AmountText    string         `json:"amount_text" db:"AmountText"`
 	Subs          []*PaybillSub  `json:"invoice_sub"`
 	Balance       []*BillBalance `json:"balance"`
 }
 
 type PaybillSub struct {
-	Id          int64   `json:"id" db:"Id"`
-	InvoiceNo   string  `json:"invoice_no" db:"InvoiceNo"`
-	InvoiceDate string  `json:"invoice_date" db:"InvoiceDate"`
-	DueDateSub  string  `json:"due_date_sub" db:"DueDate"`
+	Id          int64  `json:"id" db:"Id"`
+	InvoiceNo   string `json:"invoice_no" db:"InvoiceNo"`
+	InvoiceDate string `json:"invoice_date" db:"InvoiceDate"`
+	DueDateSub  string `json:"due_date_sub" db:"DueDate"`
 	InvBalance  string `json:"inv_balance" db:"InvBalance"`
 	PayAmount   string `json:"pay_amount" db:"PayAmount"`
 	PayBalance  string `json:"pay_balance" db:"PayBalance"`
-	ItemName    string  `json:"item_name" db:"ItemName"`
-	LineNumber  int     `json:"line_number" db:"LineNumber"`
+	PayMoney    string `json:"pay_money" db:"PayMoney"`
+	ItemName    string `json:"item_name" db:"ItemName"`
+	LineNumber  int    `json:"line_number" db:"LineNumber"`
 }
 
 type BillBalance struct {
-	RowNumber    int64   `json:"row_number" db:"RowNumber"`
-	MonthName    string  `json:"month_name" db:"MonthGroup"`
+	RowNumber    int64  `json:"row_number" db:"RowNumber"`
+	MonthName    string `json:"month_name" db:"MonthGroup"`
 	MonthBalance string `json:"month_balance" db:"vSumBalance"`
-	ArCode       string  `json:"ar_code" db:"ArCode"`
-	ArName       string  `json:"ar_name" db:"ArName"`
-	BillAddress  string  `json:"bill_address" db:"BillAddress"`
-	Telephone    string  `json:"telephone" db:"Telephone"`
-	Fax          string  `json:"fax" db:"Fax"`
+	ArCode       string `json:"ar_code" db:"ArCode"`
+	ArName       string `json:"ar_name" db:"ArName"`
+	BillAddress  string `json:"bill_address" db:"BillAddress"`
+	Telephone    string `json:"telephone" db:"Telephone"`
+	Fax          string `json:"fax" db:"Fax"`
 }
 
 type Request struct {
@@ -66,7 +67,7 @@ type Request struct {
 
 type MailData struct {
 	ArNameMail string `json:"ar_name_mail"`
-	UrlLink string `json:"url_link"`
+	UrlLink    string `json:"url_link"`
 }
 
 const (
@@ -81,7 +82,7 @@ func (p *Paybill) SentEmailAuto(access_token string, ar_code string, ar_name str
 	data := &MailData{}
 	data.ArNameMail = ar_name
 	//data.UrlLink = "http://app.nopadol.com:20000/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
-	data.UrlLink = "http://credit.nopadol.com:20000/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
+	data.UrlLink = "http://credit.nopadol.com:20000/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" + access_token
 	t, err := template.ParseFiles("./templates/letter.html")
 	if err != nil {
 		return err
@@ -91,7 +92,6 @@ func (p *Paybill) SentEmailAuto(access_token string, ar_code string, ar_name str
 		return err
 	}
 	r.body = buffer.String()
-
 
 	//r.body = "http://venus:8099/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
 
@@ -153,7 +153,7 @@ func (p *Paybill) ShowDocNo(db *sqlx.DB, ar_code string, doc_no string, access_t
 	var check_token int
 
 	sql_check_token := `select count(*) as check_token from NPMaster.dbo.TB_CD_PaybillLogs where arcode = ? and docno = ? and accesstoken = ?`
-	fmt.Println("sql_check_token = ",sql_check_token, ar_code, doc_no, access_token)
+	fmt.Println("sql_check_token = ", sql_check_token, ar_code, doc_no, access_token)
 	err = db.Get(&check_token, sql_check_token, ar_code, doc_no, access_token)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -171,45 +171,86 @@ func (p *Paybill) ShowDocNo(db *sqlx.DB, ar_code string, doc_no string, access_t
 
 		for _, pp := range paybills {
 			//sqlsub := `select InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,InvBalance,InvBalance,PayBalance,rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,LineNumber+1 as LineNumber,(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName from	dbo.bcpaybillsub a inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate where	a.arcode = ? and a.docno = ? and c.billstatus = 0 and a.iscancel = 0 and c.iscancel = 0`
+			//	sqlsub := `select * from (select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
+			//CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
+			//rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+			//LineNumber+1 as LineNumber,
+			//(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName
+			//from	dbo.bcpaybillsub a
+			//		inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode
+			//		inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate
+			//where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
+			//union
+			//select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
+			//		CONVERT(varchar, CAST(-1*InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
+			//		rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+			//		LineNumber+1 as LineNumber,
+			//		(select top 1 itemname from dbo.bccreditnotesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName
+			//from	dbo.bcpaybillsub a
+			//		inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode
+			//		inner join dbo.bccreditnote b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate
+			//where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
+			//union
+			//select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
+			//		CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
+			//		rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+			//		LineNumber+1 as LineNumber,
+			//		(select top 1 itemname from dbo.bcdebitnotesub1 where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName
+			//from	dbo.bcpaybillsub a
+			//		inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode
+			//		inner join dbo.bcdebitnote1 b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate
+			//where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
+			//union
+			//select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
+			//		CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
+			//		rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
+			//		LineNumber+1 as LineNumber,
+			//		isnull((select top 1 itemname from dbo.bcdebitnotesub1 where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc),'') as ItemName
+			//from	dbo.bcpaybillsub a
+			//		inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode
+			//		inner join dbo.bcarotherdebt b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate
+			//where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
+			//) as rs order by linenumber`
+
 			sqlsub := `select * from (select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
 		CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
 		rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
-		LineNumber+1 as LineNumber,
+		LineNumber+1 as LineNumber,CONVERT(varchar, CAST(case when paybalance = 0 then payamount when payamount = paybalance then 0 when paybalance < payamount then payamount-paybalance end AS money), 1) as PayMoney,
 		(select top 1 itemname from dbo.bcarinvoicesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName 
 		from	dbo.bcpaybillsub a 
 				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
 				inner join dbo.bcarinvoice b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
-		where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
+		where	a.arcode = ? and a.docno = ? and a.iscancel = 0 and c.iscancel = 0 
 		union
 		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
 				CONVERT(varchar, CAST(-1*InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
 				rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
-				LineNumber+1 as LineNumber,
+				LineNumber+1 as LineNumber,CONVERT(varchar, CAST(case when paybalance = 0 then payamount when payamount = paybalance then 0 when paybalance < payamount then payamount-paybalance end AS money), 1) as PayMoney,
 				(select top 1 itemname from dbo.bccreditnotesub where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName 
 		from	dbo.bcpaybillsub a 
 				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
 				inner join dbo.bccreditnote b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
-		where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
+		where	a.arcode = ? and a.docno = ? and a.iscancel = 0 and c.iscancel = 0
 		union
 		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
 				CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
 				rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
-				LineNumber+1 as LineNumber,
+				LineNumber+1 as LineNumber,CONVERT(varchar, CAST(case when paybalance = 0 then payamount when payamount = paybalance then 0 when paybalance < payamount then payamount-paybalance end AS money), 1) as PayMoney,
 				(select top 1 itemname from dbo.bcdebitnotesub1 where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc) as ItemName 
 		from	dbo.bcpaybillsub a 
 				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
 				inner join dbo.bcdebitnote1 b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
-		where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
+		where	a.arcode = ? and a.docno = ? and a.iscancel = 0 and c.iscancel = 0 
 		union
 		select	InvoiceNo,rtrim(day(a.InvoiceDate))+'/'+rtrim(month(a.InvoiceDate))+'/'+rtrim(year(a.InvoiceDate)) as InvoiceDate,
 				CONVERT(varchar, CAST(InvBalance AS money), 1) as InvBalance,CONVERT(varchar, CAST(PayAmount AS money), 1) as PayAmount,CONVERT(varchar, CAST(PayBalance AS money), 1) as PayBalance,
 				rtrim(day(b.DueDate))+'/'+rtrim(month(b.DueDate))+'/'+rtrim(year(b.DueDate)) as DueDate,
-				LineNumber+1 as LineNumber,
+				LineNumber+1 as LineNumber,CONVERT(varchar, CAST(case when paybalance = 0 then payamount when payamount = paybalance then 0 when paybalance < payamount then payamount-paybalance end AS money), 1) as PayMoney,
 				isnull((select top 1 itemname from dbo.bcdebitnotesub1 where arcode = a.arcode and docno = a.invoiceno and docdate = a.invoicedate order by netamount desc),'') as ItemName 
 		from	dbo.bcpaybillsub a 
 				inner join dbo.bcpaybill c on a.docno = c.docno and a.arcode = c.arcode 
 				inner join dbo.bcarotherdebt b on a.arcode = b.arcode and a.invoiceno = b.docno and a.InvoiceDate = b.docdate 
-		where	a.arcode = ? and a.docno = ? and c.billstatus <> 1 and a.iscancel = 0 and c.iscancel = 0 and PayBalance > 0
+		where	a.arcode = ? and a.docno = ?  and a.iscancel = 0 and c.iscancel = 0 
 		) as rs order by linenumber`
 
 			fmt.Println("query sqlsub= ", sqlsub, pp.ArCode, pp.DocNo)
@@ -232,7 +273,7 @@ func (p *Paybill) ShowDocNo(db *sqlx.DB, ar_code string, doc_no string, access_t
 			return nil, err
 		}
 		return paybills, nil
-	}else {
+	} else {
 		return nil, err
 	}
 }
