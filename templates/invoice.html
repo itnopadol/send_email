@@ -10,7 +10,11 @@
     <title>ใบแจ้งหนี้/ใบแจ้งยอดบัญชีค้างชำระ</title>
 
 </head>
-
+<style>
+    tr td{
+        font-size:10.5px;
+    }
+</style>
 <body>
 
     <div class="container">
@@ -28,10 +32,10 @@
                                 <td width="20%" align="left"><label style="font-size:10.5px;"><img style="width: 120px;height: 45px;" src="../static/images/logo-nopadol.bmp">บริษัท นพดลพานิช จำกัด</label></td>
                             </tr>
                             <tr>
-                                <td height="20%"><span style="font-size:10.5px;">สำนักงานใหญ่ 392 ถนนซุปเปอร์ไฮเวย์-เชียงใหม่ ลำปาง ต.ฟ้าฮ่าม อ.เมือง จ.เชียงใหม่ 50000 </span></td>
+                                <td height="20%"><span style="font-size:10.5px;">สำนักงานใหญ่ 392 ถ.ซุปเปอร์ไฮเวย์-เชียงใหม่ ลำปาง ต.ฟ้าฮ่าม อ.เมือง จ.เชียงใหม่ 50000 </span></td>
                             </tr>
                             <tr>
-                                <td height="20%"><span style="font-size:10.5px;">สาขา 1:183 หมู่ที่ 2 ต.ต้นเปา อ.สันกำแพง จ.เชียงใหม่ 50130</span></td>
+                                <td height="20%"><span style="font-size:10.5px;">สาขา1 เลขที่ 183 หมู่ที่ 2 ต.ต้นเปา อ.สันกำแพง จ.เชียงใหม่ 50130</span></td>
                             </tr>
                         </table>
                     </td></tr>
@@ -92,22 +96,17 @@
                     		<td>
                         <table border="0">
                             <tr>
-                                <td width="20%" height="10%" align="center"><span style="font-size:10.5px;">เรื่อง</span></td>
+                                <td width="20%" height="10%"><span style="font-size:10.5px;">เรื่อง</span></td>
                                 <td width="80%" height="10%"><span style="font-size:10.5px;">แจ้งยอดบัญชีถึงกำหนดชำระ</span></td>
                             </tr>
                             <tr>
-                                <td align="center"><span style="font-size:10.5px;"> </span></td>
-                                <td>
-                                    <table border="0" width="100%" height="70%">
-                                       <tr>
+
+
                                            <td><span style="font-size:10.5px;">เรียน ผู้จัดการ/ {{range .}} {{.ArName}} {{end}}
                                                <br/> ที่อยู่ {{range .}} {{.BillAddress}} {{end}}
                                                <br/>
                                            </span></td>
 
-                                       </tr>
-                                    </table>
-                                </td>
                             </tr>
                         </table>
                     </td></tr>
@@ -264,9 +263,21 @@
                 <tr>
                     <td><span style="font-size:10.5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่
 		ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯ จะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว กรณีชำระล่าช้าบริษัท ฯ ขอคิดดอกเบี้ยในอัตรา 1.25%
-	ต่อเดือน และค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระ
-โดยการโอนเข้าบัญชี บริษัทนพดลพานิช จำกัด ดังนี้</span></td>
+	ต่อเดือน และค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน สำหรับใบส่งสินค้าที่ไม่ชำระตามกำหนด ท่านสามารถชำระเงินโดยช่องทาง ดังต่อไปนี้
+    </span></td>
                 </tr>
+            <tr>
+                <td>1.เงินสด</td>
+            </tr>
+            <tr>
+                <td>2.เช็ค,แคชเชียร์เช็ค,ตั๋วสัญญาใช้เงิน (สั่งจ่ายเช็คขีดคร่อมในนาม บริษัท นพพลพานิช จำกัด และขีด หรือ ผู้ถือ)</td>
+            </tr>
+            <tr>
+                <td>3.บัตรเครดิต (สินค้าตกแต่งฟรีค่าธรรมเนียม)</td>
+            </tr>
+            <tr>
+                <td>4.การโอนเข้าบัญชี บริษัทนพดลพานิชจำกัด ดังนี้</td>
+            </tr>
             </table>
         </div>
     </div>
@@ -275,7 +286,7 @@
             <table border="0" width="100%" height="15%">
                 <tr>
                     <td align="center">
-                        <img src="../static/images/B.png">
+                        <img src="../static/images/BNP.jpg">
                     </td>
                 </tr>
             </table>
@@ -327,12 +338,12 @@
                         <table border="0" width="95%">
                             <tr>
                                 <td width="20%" align="center"><span style="font-size:10.5px;">ติดต่อแผนกสินเชื่อ</span></td>
-                                <td width="80%"><span style="font-size:10.5px;"> โทร (053) 240377 ต่อ 500,511,512, โทรสาร (053) 244111
+                                <td width="80%"><span style="font-size:10.5px;"> โทร (053) 240377 ต่อ 500,510,511,512, โทรสาร (053) 244111
 						</span></td>
                             </tr>
                             <tr>
                                 <td width="20%"></td>
-                                <td width="80%"><span style="font-size:10.5px;">หรือ คุณธนยศ,คุณเบญจวรรณ โทร 081-6710875 คุณณัฎฐ์ชยาภรณ์ โทร. 065-2135353
+                                <td width="80%"><span style="font-size:10.5px;">หรือ คุณสุพรรณี,คุณเบญจวรรณ โทร 081-6710875 คุณณัฎฐ์ชยาภรณ์ โทร. 065-2135353
 						 คุณวิไลวรรณ โทร.081-6815780 </span></td>
                             </tr>
                         </table>

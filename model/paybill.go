@@ -77,7 +77,9 @@ const (
 func (p *Paybill) SentEmailAuto(access_token string, ar_code string, ar_name string, doc_no string, email string) error {
 	subject := "แจ้งใบวางบิล"
 	receiver := email
-	r := NewRequest([]string{receiver}, subject)
+	receiver_all := []string{receiver,"it@nopadol.com","cd@nopadol.com"}
+
+	r := NewRequest(receiver_all, subject)
 
 	data := &MailData{}
 	data.ArNameMail = ar_name
@@ -94,6 +96,8 @@ func (p *Paybill) SentEmailAuto(access_token string, ar_code string, ar_name str
 	r.body = buffer.String()
 
 	//r.body = "http://venus:8099/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
+
+	//to := []string{"foo@mailinator.com", "bar@mailinator.com"}
 
 	body := "To: " + r.to[0] + "\r\nSubject: " + r.subject + "\r\n" + MIME + "\r\n" + r.body
 	SMTP := fmt.Sprintf("%s:%d", "smtp.gmail.com", 587)
