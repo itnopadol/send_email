@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6a9df651-3e9e-4445-a1a3-cac0967276fe" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/paybill.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/paybill.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/invoice.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/invoice.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paybill.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="paybill.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/paybill.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="1190">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
               <folding>
                 <element signature="n#!!block;n#NewRequest#0" />
               </folding>
@@ -48,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="invoice.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="invoice.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/invoice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="98" column="60" selection-start-line="98" selection-start-column="60" selection-end-line="98" selection-end-column="60" />
+            <state relative-caret-position="191">
+              <caret line="288" column="87" selection-start-line="288" selection-start-column="87" selection-end-line="288" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -116,8 +115,8 @@
         <option value="$PROJECT_DIR$/ctrl/paybill.go" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/templates/letter.html" />
-        <option value="$PROJECT_DIR$/templates/invoice.html" />
         <option value="$PROJECT_DIR$/model/paybill.go" />
+        <option value="$PROJECT_DIR$/templates/invoice.html" />
       </list>
     </option>
   </component>
@@ -146,7 +145,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -168,6 +166,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -217,6 +216,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24298376" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -224,7 +224,7 @@
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290735" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32913387" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -496,13 +496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/invoice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="98" column="60" selection-start-line="98" selection-start-column="60" selection-end-line="98" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -522,11 +515,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model/paybill.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="1190">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
           <folding>
             <element signature="n#!!block;n#NewRequest#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/invoice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="288" column="87" selection-start-line="288" selection-start-column="87" selection-end-line="288" selection-end-column="87" />
         </state>
       </provider>
     </entry>
