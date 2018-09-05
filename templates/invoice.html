@@ -14,6 +14,7 @@
     tr td{
         font-size:10.5px;
     }
+
 </style>
 <body>
 
@@ -96,13 +97,13 @@
                     		<td>
                         <table border="0">
                             <tr>
-                                <td width="20%" height="10%"><span style="font-size:10.5px;">เรื่อง</span></td>
-                                <td width="80%" height="10%"><span style="font-size:10.5px;">แจ้งยอดบัญชีถึงกำหนดชำระ</span></td>
+                                <td width="20%" ><span style="font-size:10.5px;">เรื่อง</span></td>
+                                <td width="80%"><span style="font-size:10.5px;">แจ้งยอดบัญชีถึงกำหนดชำระ</span></td>
                             </tr>
-                            <tr>
+                            <tr style="position: relative;">
+                                <td style="position: absolute" width="20%">เรียน</td>
 
-
-                                           <td><span style="font-size:10.5px;">เรียน ผู้จัดการ/ {{range .}} {{.ArName}} {{end}}
+                                           <td width="80%"><span style="font-size:10.5px;"> ผู้จัดการ/ {{range .}} {{.ArName}} {{end}}
                                                <br/> ที่อยู่ {{range .}} {{.BillAddress}} {{end}}
                                                <br/>
                                            </span></td>
@@ -185,8 +186,8 @@
                             </tr>
                             <tr>
                                 <td height="90%">
-                                    <table width="100%" height="100%" border="1">
-                                        <tr align="center" bgcolor="#1e90ff">
+                                    <table width="100%"  border="1" height="100%">
+                                        <tr class="height1" align="center" bgcolor="#1e90ff">
                                             <th width="3%" ><span style="font-size:10.5px;">No</span></th>
                                             <th ><span style="font-size:10.5px;">ใบกำกับสินค้า</span></th>
                                             <th width="8%" ><span style="font-size:10.5px;">วันที่</span></th>
@@ -198,7 +199,7 @@
 
                                         </tr>
                                         {{range .}} {{range .Subs}}
-                                        <tr align="center">
+                                        <tr class="height1" align="center">
                                             <td><span style="font-size:10.5px;">{{.LineNumber}}</span></td>
                                             <td><span style="font-size:10.5px;">{{.InvoiceNo}}</span></td>
                                             <td><span style="font-size:10.5px;">{{.InvoiceDate}}</span></td>
@@ -209,7 +210,7 @@
                                             <td><span style="font-size:10.5px;">{{.ItemName}}</span></td>
                                         </tr>
                                         {{end}} {{end}}
-                                        <tr align="center" bgcolor="#1e90ff">
+                                        <tr class="height1" align="center" bgcolor="#1e90ff">
                                             <td colspan="2"><span style="font-size:10.5px;"> รวมเป็นเงิน</span></td>
                                             <td colspan="4"><span style="font-size:10.5px;">{{ range .}} {{ .AmountText}} {{end}}</span></td>
                                             <td align="right"><span style="font-size:10.5px;">{{ range .}} {{ .SumOfInvoice}} {{end}}</span></td>
@@ -231,22 +232,22 @@
             <table border="0" width="100%" height="20%">
                 <tr>
                     <td>
-                        <table border="1" width="100%" height="90%">
-                            <tr align="center" bgcolor="#ffa07a">
+                        <table border="1" width="100%" height="100%" >
+                            <tr class="height1" align="center" bgcolor="#ffa07a">
                                 <td width="3%"><span style="font-size:10.5px;">ลำดับ</span></td>
                                 <td width="18%^"><span style="font-size:10.5px;">เดือน/ปี</span></td>
                                 <td width="20%"><span style="font-size:10.5px;">ยอดเงินคงค้าง</span></td>
                                 <td width="35%"><span style="font-size:10.5px;">หมายเหตุ</span></td>
                             </tr>
                             {{ range .}} {{range .Balance}}
-                            <tr align="center">
+                            <tr class="height1" align="center">
                                 <td><span style="font-size:10.5px;">{{.RowNumber}}</span></td>
                                 <td><span style="font-size:10.5px;">{{.MonthName}}</span></td>
                                 <td align="right"><span style="font-size:10.5px;">{{.MonthBalance}}</span></td>
                                 <td><span style="font-size:10.5px;"></span></td>
                             </tr>
                             {{end}} {{end}}
-                            <tr bgcolor="#ffa07a">
+                            <tr class="height1" bgcolor="#ffa07a">
                                 <td colspan="2" align="right"><span style="font-size:10.5px; font-weight:bold;"> ผลรวมยอดค้างชำระ</span></td>
                                 <td align="right"><span style="font-size:10.5px;">{{range .}}{{.ArDebtBalance}} {{end}}</span></td>
                                 <td colspan="2" align="right"><span style="font-size:10.5px; font-weight:bold;"></span></td>

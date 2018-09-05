@@ -50,8 +50,8 @@
       <file leaf-file-name="invoice.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/invoice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="288" column="87" selection-start-line="288" selection-start-column="87" selection-end-line="288" selection-end-column="87" />
+            <state relative-caret-position="215">
+              <caret line="241" column="59" lean-forward="true" selection-start-line="241" selection-start-column="59" selection-end-line="241" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -86,6 +86,10 @@
       <find>PaybillEmail</find>
       <find>.html</find>
       <find>แจ้งยอดบัญชีค้างชำระ</find>
+      <find>หมายเหตุ</find>
+      <find>height</find>
+      <find>ใบกำกับสินค้า</find>
+      <find>height1</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="C:\Go" />
@@ -134,7 +138,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="1370" />
     <option name="height" value="735" />
@@ -145,6 +149,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,7 +171,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -224,7 +228,7 @@
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3290735" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32913387" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -525,8 +529,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/invoice.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="288" column="87" selection-start-line="288" selection-start-column="87" selection-end-line="288" selection-end-column="87" />
+        <state relative-caret-position="215">
+          <caret line="241" column="59" lean-forward="true" selection-start-line="241" selection-start-column="59" selection-end-line="241" selection-end-column="59" />
         </state>
       </provider>
     </entry>
