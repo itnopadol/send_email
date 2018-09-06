@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6a9df651-3e9e-4445-a1a3-cac0967276fe" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/paybill.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/paybill.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/invoice.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/invoice.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +39,8 @@
       <file leaf-file-name="paybill.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/paybill.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="374">
+              <caret line="34" column="19" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="19" />
               <folding>
                 <element signature="n#!!block;n#NewRequest#0" />
               </folding>
@@ -50,8 +51,17 @@
       <file leaf-file-name="invoice.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/invoice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="241" column="59" lean-forward="true" selection-start-line="241" selection-start-column="59" selection-end-line="241" selection-end-column="59" />
+            <state relative-caret-position="1151">
+              <caret line="266" column="14" selection-start-line="266" selection-start-column="14" selection-end-line="266" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invoice_back.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/invoice_back.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5525">
+              <caret line="331" column="52" selection-start-line="330" selection-start-column="80" selection-end-line="331" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -90,6 +100,9 @@
       <find>height</find>
       <find>ใบกำกับสินค้า</find>
       <find>height1</find>
+      <find>ผล</find>
+      <find>headerleft</find>
+      <find>รวมค้างชำระ</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="C:\Go" />
@@ -119,6 +132,7 @@
         <option value="$PROJECT_DIR$/ctrl/paybill.go" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/templates/letter.html" />
+        <option value="$PROJECT_DIR$/templates/letter_report.html" />
         <option value="$PROJECT_DIR$/model/paybill.go" />
         <option value="$PROJECT_DIR$/templates/invoice.html" />
       </list>
@@ -166,6 +180,11 @@
               <item name="send_email" type="b2602c69:ProjectViewProjectNode" />
               <item name="send_email" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="send_email" type="b2602c69:ProjectViewProjectNode" />
+              <item name="send_email" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -220,7 +239,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24298376" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -254,20 +272,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/invoice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4913">
-          <caret line="289" column="53" selection-start-line="289" selection-start-column="53" selection-end-line="289" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/letter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/paybill.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
@@ -517,10 +521,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/letter_report.html" />
+    <entry file="file://$PROJECT_DIR$/templates/invoice_back.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5525">
+          <caret line="331" column="52" selection-start-line="330" selection-start-column="80" selection-end-line="331" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model/paybill.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="374">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="19" />
           <folding>
             <element signature="n#!!block;n#NewRequest#0" />
           </folding>
@@ -529,8 +541,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/invoice.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="241" column="59" lean-forward="true" selection-start-line="241" selection-start-column="59" selection-end-line="241" selection-end-column="59" />
+        <state relative-caret-position="1151">
+          <caret line="266" column="14" selection-start-line="266" selection-start-column="14" selection-end-line="266" selection-end-column="14" />
         </state>
       </provider>
     </entry>

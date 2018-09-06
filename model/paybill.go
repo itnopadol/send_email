@@ -15,23 +15,26 @@ import (
 )
 
 type Paybill struct {
-	ArCode        string         `json:"ar_code" db:"ArCode"`
-	ArName        string         `json:"ar_name" db:"ArName"`
-	TaxNo         string         `json:"tax_no" db:"TaxNo"`
-	BillAddress   string         `json:"bill_address" db:"BillAddress"`
-	ArDebtBalance string         `json:"ar_debt_balance" db:"ArDebtBalance"`
-	DebtLimit1    float64        `json:"debt_limit_1" db:"DebtLimit1"`
-	DebtLimitBal  float64        `json:"debt_limit_bal" db:"DebtLimitBal"`
-	DebtAmount    float64        `json:"debt_amount" db:"DebtAmount"`
-	ChqOnHand     float64        `json:"chq_on_hand" db:"ChqOnHand"`
-	ChqReturn     float64        `json:"chq_return" db:"ChqReturn"`
-	DocNo         string         `json:"doc_no" db:"DocNo"`
-	DocDate       string         `json:"doc_date" db:"DocDate"`
-	DueDate       string         `json:"due_date" db:"DueDate"`
-	SumOfInvoice  string         `json:"sum_of_invoice" db:"SumOfInvoice"`
-	AmountText    string         `json:"amount_text" db:"AmountText"`
-	Subs          []*PaybillSub  `json:"invoice_sub"`
-	Balance       []*BillBalance `json:"balance"`
+	TaxNumber       string         `json:"tax_number" db:"TaxNumber"`
+	ArCode          string         `json:"ar_code" db:"ArCode"`
+	ArName          string         `json:"ar_name" db:"ArName"`
+	TaxNo           string         `json:"tax_no" db:"TaxNo"`
+	BillAddress     string         `json:"bill_address" db:"BillAddress"`
+	Telephone       string         `json:"telephone" db:"Telephone"`
+	ArDebtBalance   string         `json:"ar_debt_balance" db:"ArDebtBalance"`
+	DebtLimit1      float64        `json:"debt_limit_1" db:"DebtLimit1"`
+	DebtLimitBal    float64        `json:"debt_limit_bal" db:"DebtLimitBal"`
+	DebtAmount      float64        `json:"debt_amount" db:"DebtAmount"`
+	ChqOnHand       float64        `json:"chq_on_hand" db:"ChqOnHand"`
+	ChqReturn       float64        `json:"chq_return" db:"ChqReturn"`
+	DocNo           string         `json:"doc_no" db:"DocNo"`
+	DocDate         string         `json:"doc_date" db:"DocDate"`
+	DueDate         string         `json:"due_date" db:"DueDate"`
+	SumOfInvoice    string         `json:"sum_of_invoice" db:"SumOfInvoice"`
+	AmountText      string         `json:"amount_text" db:"AmountText"`
+	TotalDebtAmount string         `json:"total_debt_amount" db:"TotalDebtAmount"`
+	Subs            []*PaybillSub  `json:"invoice_sub"`
+	Balance         []*BillBalance `json:"balance"`
 }
 
 type PaybillSub struct {
@@ -77,7 +80,7 @@ const (
 func (p *Paybill) SentEmailAuto(access_token string, ar_code string, ar_name string, doc_no string, email string) error {
 	subject := "แจ้งใบวางบิล"
 	receiver := email
-	receiver_all := []string{receiver,"it@nopadol.com","cd@nopadol.com"}
+	receiver_all := []string{receiver, "it@nopadol.com", "cd@nopadol.com"}
 
 	r := NewRequest(receiver_all, subject)
 
@@ -269,6 +272,7 @@ func (p *Paybill) ShowDocNo(db *sqlx.DB, ar_code string, doc_no string, access_t
 			if err != nil {
 				return nil, err
 			}
+			fmt.Println(pp.Balance)
 		}
 
 		sql_open_mail := `update NPMaster.dbo.TB_CD_PaybillLogs set isopened = 1,opendatetime = getdate() where arcode = ? and docno = ? and accesstoken = ?`

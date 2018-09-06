@@ -1,0 +1,342 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ใบแจ้งหนี้/ใบแจ้งยอดบัญชีค้างชำระ</title>
+
+</head>
+<style>
+    tr td{
+        font-size:10.5px;
+    }
+
+</style>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <table border="0" width="33.3333333%" height="10%"   >
+                <tr>
+                    <td>
+                    	<table width="100%" height="80%" style="border-collapse: collapse;
+        border-radius: 10px;
+        border-style: hidden;
+        box-shadow: 0 0 0 1px #666; border: 1px;">
+                    		<tr><td>
+                        <table width="100%" height="100%" border="0" >
+                            <tr>
+                                <td width="20%" align="left"><label style="font-size:10.5px;"><img style="width: 120px;height: 45px;" src="../static/images/logo-nopadol.bmp">บริษัท นพดลพานิช จำกัด</label></td>
+                            </tr>
+                            <tr>
+                                <td height="20%"><span style="font-size:10.5px;">สำนักงานใหญ่ 392 ถ.ซุปเปอร์ไฮเวย์-เชียงใหม่ ลำปาง ต.ฟ้าฮ่าม อ.เมือง จ.เชียงใหม่ 50000 </span></td>
+                            </tr>
+                            <tr>
+                                <td height="20%"><span style="font-size:10.5px;">สาขา1 เลขที่ 183 หมู่ที่ 2 ต.ต้นเปา อ.สันกำแพง จ.เชียงใหม่ 50130</span></td>
+                            </tr>
+                        </table>
+                    </td></tr>
+                    </table>
+                    </td>
+                </tr>
+            </table>
+
+            <table border="0" width="33.3333333%" height="10%">
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+            <table border="0" width="33.3333333%" height="10%">
+                <tr>
+                    <td>
+                        <table align="right">
+                            <tr>
+                                <td>
+                                    <table border="0">
+                                        <tr>
+                                            <td><span style="font-size:10.5px;">ใบแจ้งหนี้/Credit Statement</span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="0">
+                                        <tr>
+                                            <td><span style="font-size:10.5px;">เลขที่ใบแจ้งหนี้ {{range .}} {{.DocNo}} {{end}}</span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table border="0">
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    </table>
+                    </td>
+                </tr>
+            </table>
+            <table border="0" width="40.3333333%" height="10%">
+                <tr>
+                    <td>
+                    	<table border="1" width="100%" height="80%" style="border-collapse: collapse;
+                               border-radius: 10px;
+                               border-style: hidden;
+                               box-shadow: 0 0 0 1px #666; border: 1px;" >
+                    		<tr>
+                    		<td>
+                        <table border="0">
+                            <tr>
+                                <td width="20%" ><span style="font-size:10.5px;">เรื่อง</span></td>
+                                <td width="80%"><span style="font-size:10.5px;">แจ้งยอดบัญชีถึงกำหนดชำระ</span></td>
+                            </tr>
+                            <tr style="position: relative;">
+                                <td style="position: absolute" width="20%">เรียน</td>
+
+                                           <td width="80%"><span style="font-size:10.5px;"> ผู้จัดการ/ {{range .}} {{.ArName}} {{end}}
+                                               <br/> ที่อยู่ {{range .}} {{.BillAddress}} {{end}}
+                                               <br/>
+                                           </span></td>
+
+                            </tr>
+                        </table>
+                    </td></tr>
+                    </table>
+                </td>
+                </tr>
+            </table>
+            <table border="0" width="26.3%" height="10%">
+                <tr>
+                    <td>
+                        <table border="0" align="center">
+                            <tr>
+                                <table border="0" width="90%" align="right" height="100%">
+                                    <tr>
+                                        <td width="100%" height="90%">
+                                            <table border="0" width="100%">
+                                                <tr>
+                                                    <td width="100%" height="10%" align="center"><span style="font-size:10.5px;">วันที่สรุป {{range .}} {{.DocDate}} {{end}}</span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- <td></td> -->
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table border="0" width="33%" height="10%">
+                <tr>
+                    <td>
+                        <table border="0" height="100%" width="70%" align="right">
+                            <tr>
+                                <td height="85%" width="30%">
+                                    <table border="0" align="right">
+                                        <tr>
+                                            <td width="100%" height="10%" align="center"><span style="font-size:10.5px;">วันที่ครบกำหนด {{range .}} {{.DueDate}} {{end}}</span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table border="0" width="100%" height="20%">
+                <tr>
+                    <td>
+                        <table border="0" width="100%" height="100%s">
+                            <tr>
+                                <td height="10%" style="padding-left:2%">
+                                    <table border="0" width="100%">
+                                        <tr>
+                                            <td width="94%"><span style="font-size:10.5px;">ทางบริษัทฯ ใคร่ขอความกรุณาท่านโปรดชำระเงินค่าสินค้าและบริการตามรายการใบกำกับข้างล่างนี้ </span></td>
+
+                                            <td align="right" >
+                                                <button type="submit" name="Submit" value=" พิมพ์ " onClick="javascript:this.style.display='none';window.print()">
+                                                    <img src="../static/images/printer.png" width="50%" height="10%" alt="submit" />
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+
+                                     </td>
+
+                            </tr>
+                            <tr>
+                                <td height="90%">
+                                    <table width="100%"  border="1" height="100%">
+                                        <tr class="height1" align="center" bgcolor="#1e90ff">
+                                            <th width="3%" ><span style="font-size:10.5px;">No</span></th>
+                                            <th ><span style="font-size:10.5px;">ใบกำกับสินค้า</span></th>
+                                            <th width="8%" ><span style="font-size:10.5px;">วันที่</span></th>
+                                            <th width="8%" ><span style="font-size:10.5px;">วันครบกำหนด</span></th>
+                                            <th width="8%" ><span style="font-size:10.5px;">จำนวนเงิน</span></th>
+                                            <th width="8%" ><span style="font-size:10.5px;">ชำระแล้ว</span></th>
+                                            <th width="8%" ><span style="font-size:10.5px;">ยอดคงค้าง</span></th>
+                                            <th  ><span style="font-size:10.5px;">รายการสินค้า</span></th>
+
+                                        </tr>
+                                        {{range .}} {{range .Subs}}
+                                        <tr class="height1" align="center">
+                                            <td><span style="font-size:10.5px;">{{.LineNumber}}</span></td>
+                                            <td><span style="font-size:10.5px;">{{.InvoiceNo}}</span></td>
+                                            <td><span style="font-size:10.5px;">{{.InvoiceDate}}</span></td>
+                                            <td><span style="font-size:10.5px;">{{.DueDateSub}}</span></td>
+                                            <td align="right"><span style="font-size:10.5px;">{{.InvBalance}}</span></td>
+                                            <td align="right"><span style="font-size:10.5px;">{{.PayMoney}}</span></td>
+                                            <td align="right"><span style="font-size:10.5px;">{{.PayBalance}}</span></td>
+                                            <td><span style="font-size:10.5px;">{{.ItemName}}</span></td>
+                                        </tr>
+                                        {{end}} {{end}}
+                                        <tr class="height1" align="center" bgcolor="#1e90ff">
+                                            <td colspan="2"><span style="font-size:10.5px;"> รวมเป็นเงิน</span></td>
+                                            <td colspan="4"><span style="font-size:10.5px;">{{ range .}} {{ .AmountText}} {{end}}</span></td>
+                                            <td align="right"><span style="font-size:10.5px;">{{ range .}} {{ .SumOfInvoice}} {{end}}</span></td>
+                                            <td><span style="font-size:10.5px;"></span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <span style="font-size:10.5px;"> และท่านยังมียอดค้างชำระที่ได้แจ้งหนี้ไปแล้ว ดังนี้</span>
+            <table border="0" width="100%" height="20%">
+                <tr>
+                    <td>
+                        <table border="1" width="100%" height="100%" >
+                            <tr class="height1" align="center" bgcolor="#ffa07a">
+                                <td width="3%"><span style="font-size:10.5px;">ลำดับ</span></td>
+                                <td width="18%^"><span style="font-size:10.5px;">เดือน/ปี</span></td>
+                                <td width="20%"><span style="font-size:10.5px;">ยอดเงินคงค้าง</span></td>
+                                <td width="35%"><span style="font-size:10.5px;">หมายเหตุ</span></td>
+                            </tr>
+                            {{ range .}} {{range .Balance}}
+                            <tr class="height1" align="center">
+                                <td><span style="font-size:10.5px;">{{.RowNumber}}</span></td>
+                                <td><span style="font-size:10.5px;">{{.MonthName}}</span></td>
+                                <td align="right"><span style="font-size:10.5px;">{{.MonthBalance}}</span></td>
+                                <td><span style="font-size:10.5px;"></span></td>
+                            </tr>
+                            {{end}} {{end}}
+                            <tr class="height1" bgcolor="#ffa07a">
+                                <td colspan="2" align="right"><span style="font-size:10.5px; font-weight:bold;"> ผลรวมยอดค้างชำระ</span></td>
+                                <td align="right"><span style="font-size:10.5px;">{{range .}}{{.ArDebtBalance}} {{end}}</span></td>
+                                <td colspan="2" align="right"><span style="font-size:10.5px; font-weight:bold;"></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table border="0" width="100%" height="5%">
+                <tr>
+                    <td><span style="font-size:10.5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;หากยอดที่แจ้งข้างต้นไม่ถูกต้องโปรดทักท้วงไปยังบริษัทฯ ภายใน 7 วัน นับแต่
+		ได้รับใบแจ้งหนี้ มิฉะนั้นบริษัทฯ จะถือว่ายอดที่แจ้งข้างต้นถูกต้องแล้ว กรณีชำระล่าช้าบริษัท ฯ ขอคิดดอกเบี้ยในอัตรา 1.25%
+	ต่อเดือน และค่าบริการติดตามอีก 0.75% รวมเป็น 2% ต่อเดือน โดยท่านสามารถชำระเงินตามช่องทาง ดังนี้
+    </span></td>
+                </tr>
+            <tr>
+                <td>1.ชำระโดย เงินสด และเรียกรับใบเสร็จรับเงินทุกครั้งจากพนักงาน</td>
+            </tr>
+            <tr>
+                <td>2.ชำระโดย เช็ค,แคชเชียร์เช็ค,ตั๋วสัญญาใช้เงิน (สั่งจ่ายในนาม บริษัท นพดลพานิช จำกัด และขีด หรือ ผู้ถือ)</td>
+            </tr>
+            <tr>
+                <td>3.ชำระโดย บัตรเครดิต (สินค้ากลุ่มตกแต่งฟรีค่าธรรมเนียม)</td>
+            </tr>
+            <tr>
+                <td>4.ชำระโดย การโอนเข้าบัญชี บริษัท นพดลพานิช จำกัด ด้วย QRCode หรือเลขที่บัญชีดังนี้</td>
+            </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table border="0" width="100%" height="20%">
+                <tr>
+                    <td align="center">
+                        <img src="../static/images/QR.png" style="width:100%;height: 24%">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table border="0" width="100%" height="5%">
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><span style="font-size:10.5px;">เมื่อมีการโอนเงินให้กับบริษัทฯ ขอความกรุณาท่านแจ้ง/ส่งรายละเอียดการชำระให้ทาง
+					                E-mail: cd@nopadol.com, Fax: 053-244111 หรือ Line Id 0816710875</span></td>
+                            </tr>
+                            <tr>
+                                <td><span style="font-size:10.5px;">บริษัท ฯ ต้องขออภัย ณ ที่นี่ด้วย หากท่านชำระยอดคงค้างเรียบร้อยแล้ว</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table border="0" width="100%" height="5%">
+                <tr>
+                    <td>
+                        <table border="0" width="95%">
+                            <tr>
+                                <td width="20%" align="center"><span style="font-size:10.5px;">ติดต่อแผนกสินเชื่อ</span></td>
+                                <td width="80%"><span style="font-size:10.5px;"> โทร (053) 240377 ต่อ 500,510,511,512, โทรสาร (053) 244111
+						</span></td>
+                            </tr>
+                            <tr>
+                                <td width="20%"></td>
+                                <td width="80%"><span style="font-size:10.5px;">หรือ คุณสุพรรณี,คุณเบญจวรรณ โทร 081-6710875 คุณณัฎฐ์ชยาภรณ์ โทร. 065-2135353
+						 คุณวิไลวรรณ โทร.081-6815780 </span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
