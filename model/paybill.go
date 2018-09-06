@@ -98,10 +98,6 @@ func (p *Paybill) SentEmailAuto(access_token string, ar_code string, ar_name str
 	}
 	r.body = buffer.String()
 
-	//r.body = "http://venus:8099/email/html?ar_code=" + ar_code + "&doc_no=" + doc_no + "&access_token=" +access_token
-
-	//to := []string{"foo@mailinator.com", "bar@mailinator.com"}
-
 	body := "To: " + r.to[0] + "\r\nSubject: " + r.subject + "\r\n" + MIME + "\r\n" + r.body
 	SMTP := fmt.Sprintf("%s:%d", "smtp.gmail.com", 587)
 	if err := smtp.SendMail(SMTP, smtp.PlainAuth("", "nopadol_mailauto@nopadol.com", "[vdw,jwfh2012", "smtp.gmail.com"), "satit@nopadol.com", r.to, []byte(body)); err != nil {
